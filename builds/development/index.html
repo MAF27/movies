@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Movie Trade</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-route/angular-route.js"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	</head>
+
+	<body ng-app="movies">
+		<header id="intro">
+			<article>
+				<div class="logo">
+					<h1>Movie Trade</h1>
+				</div>
+				<div class="user">
+					<span>
+						<i class="fa fa-user fa-2x"></i>
+					</span>
+				</div>
+			</article>
+
+			<nav id="nav">
+				<div class="navbar">
+					<ul>
+						<li class="active">
+							<a href="/#/allmovies">
+								<span>All Movies</span>
+							</a>
+						</li>
+						<li>
+							<a href="/#/mymovies">
+								<span>My Movies</span>
+							</a>
+						</li>
+						<li>
+							<a href="/#/mytrades">
+								<span>My Trades</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</nav>
+		</header>
+
+		Below is the Angular Content
+		<div id="angcontent" ng-view></div>
+
+		<script src="js/script.js"></script>
+	</body>
+
+</html>

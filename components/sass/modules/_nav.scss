@@ -1,0 +1,49 @@
+header #nav {
+  @include clearfix;
+  // @include background-image(linear-gradient(top, lighten($navBackground, 10), $navBackground));
+  width: 100%;
+  padding: 5px;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+
+  .navbar {
+    @include container;
+    border-radius: 5px;
+
+    ul {
+      li {
+        border: 1px solid $iosblue;
+        font-weight: 400;
+        @include span(4);
+        text-align: center;
+        padding: 5px 0;
+        // float: left;
+        a:visited, a:link {
+          display: inline-block;
+          text-decoration: none;
+          color: $iosblue;
+        } //a
+        &:hover {
+          background-color: $navHover;
+          color: $blue;
+        } //hover
+
+        &.active {
+          background-color: $iosblue;
+          a {
+            color: $light;
+          }
+        }
+        &:first-child {
+          border-radius: 5px 0 0 5px;
+          border-right: 0;
+        }
+        &:last-child {
+          border-radius: 0 5px 5px 0;
+          border-left: 0;
+        }
+      } //li
+    } //ul
+  } //navbar
+} //header #nav

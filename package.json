@@ -1,0 +1,27 @@
+{
+  "name": "movies",
+  "version": "0.9.1",
+  "description": "Freecodecamp Basejump #4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MAF27/movies.git"
+  },
+  "author": "Marco Früh",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-util": "^2.2.20",
+    "gulp-concat": "^2.3.4",
+    "gulp-browserify": "^0.5.0",
+    "jquery": "^2.1.1",
+    "gulp-compass": "^1.2.0",
+    "gulp-connect": "^2.0.6",
+    "gulp-if": "^1.2.4",
+    "gulp-uglify": "^0.3.1",
+    "gulp-minify-html": "^0.1.4"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-route": "^1.4.8",
+    "angular-router-browserify": "0.0.2"
+  }
+}
