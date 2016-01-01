@@ -6,7 +6,8 @@ body {
 
 #angcontent {
   @include container(95%);
-  padding: 7px 0;
+  padding-top: 7px;
+  padding-bottom: 50px;
 }
 
 .scene {

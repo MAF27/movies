@@ -1,2 +1,11 @@
-<h1>This is All Movies</h1>
-<p>A message from the controller: {{msg}}</p>
+<section id="allmovies">
+	<h1>This is All Movies</h1>
+	<p>A message from the controller: {{msg}}</p>
+
+	<article>
+		<div class="gallery">
+				<img ng-repeat="movie in movies" ng-src='{{movie.img}}' alt='{{movie.title}}' title='{{movie.title}}' />
+		</div>
+	</article>
+
+</section>

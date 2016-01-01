@@ -108,7 +108,8 @@ body {
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
-  padding: 7px 0;
+  padding-top: 7px;
+  padding-bottom: 50px;
 }
 /* line 12, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
 #angcontent:after {
@@ -117,12 +118,12 @@ body {
   clear: both;
 }
 
-/* line 12, ../../../components/sass/_layout.scss */
+/* line 13, ../../../components/sass/_layout.scss */
 .scene {
   position: relative;
   padding: 20px 0;
 }
-/* line 16, ../../../components/sass/_layout.scss */
+/* line 17, ../../../components/sass/_layout.scss */
 .scene article {
   max-width: 95%;
   margin-left: auto;
@@ -135,13 +136,13 @@ body {
   clear: both;
 }
 @media (min-width: 1200px) {
-  /* line 12, ../../../components/sass/_layout.scss */
+  /* line 13, ../../../components/sass/_layout.scss */
   .scene {
     padding: 40px 0;
   }
 }
 @media (min-width: 960px) {
-  /* line 25, ../../../components/sass/_layout.scss */
+  /* line 26, ../../../components/sass/_layout.scss */
   .scene article {
     max-width: 100%;
     margin-left: auto;
@@ -213,7 +214,7 @@ header #nav {
   width: 100%;
   padding: 5px;
   z-index: 100;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 /* line 22, ../../../components/sass/_mixins.scss */
@@ -241,6 +242,7 @@ header #nav .navbar:after {
 /* line 15, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li {
   border: 1px solid #0076FF;
+  background-color: #FFFFFF;
   font-weight: 400;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -252,38 +254,38 @@ header #nav .navbar ul li {
   text-align: center;
   padding: 5px 0;
 }
-/* line 22, ../../../components/sass/modules/_nav.scss */
+/* line 23, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li a:visited, header #nav .navbar ul li a:link {
   display: inline-block;
   text-decoration: none;
   color: #0076FF;
 }
-/* line 27, ../../../components/sass/modules/_nav.scss */
+/* line 28, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li:hover {
   background-color: #EFC94C;
   color: #063642;
 }
-/* line 32, ../../../components/sass/modules/_nav.scss */
+/* line 33, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li.active {
   background-color: #0076FF;
 }
-/* line 34, ../../../components/sass/modules/_nav.scss */
+/* line 35, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li.active a {
   color: #FFFFFF;
 }
-/* line 38, ../../../components/sass/modules/_nav.scss */
+/* line 39, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li:first-child {
   border-radius: 5px 0 0 5px;
   border-right: 0;
 }
-/* line 42, ../../../components/sass/modules/_nav.scss */
+/* line 43, ../../../components/sass/modules/_nav.scss */
 header #nav .navbar ul li:last-child {
   border-radius: 0 5px 5px 0;
   border-left: 0;
 }
 
-/* line 1, ../../../components/sass/modules/_welcome.scss */
-#welcome {
+/* line 1, ../../../components/sass/modules/_allmovies.scss */
+#allmovies {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VmYzk0YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyN2EzZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #efc94c), color-stop(100%, #e27a3f));
@@ -291,144 +293,66 @@ header #nav .navbar ul li:last-child {
   background-image: -webkit-linear-gradient(top, #efc94c, #e27a3f);
   background-image: linear-gradient(to bottom, #efc94c, #e27a3f);
 }
-/* line 4, ../../../components/sass/modules/_welcome.scss */
-#welcome article {
+/* line 4, ../../../components/sass/modules/_allmovies.scss */
+#allmovies article {
   text-align: center;
-  max-width: 70%;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 /* line 12, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-#welcome article:after {
+#allmovies article:after {
   content: " ";
   display: block;
   clear: both;
 }
-@media (min-width: 650px) {
-  /* line 4, ../../../components/sass/modules/_welcome.scss */
-  #welcome article {
-    max-width: 33em;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 60px 0;
-  }
-  /* line 12, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-  #welcome article:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
-}
-/* line 13, ../../../components/sass/modules/_welcome.scss */
-#welcome h1 {
+/* line 9, ../../../components/sass/modules/_allmovies.scss */
+#allmovies h1 {
   font-weight: normal;
   line-height: 100%;
   color: #a24a19;
   padding: 10px 0;
 }
 /* line 22, ../../../components/sass/_mixins.scss */
-#welcome .gallery:before, #welcome .gallery:after {
+#allmovies .gallery:before, #allmovies .gallery:after {
   content: '';
   display: table;
 }
 /* line 27, ../../../components/sass/_mixins.scss */
-#welcome .gallery:after {
+#allmovies .gallery:after {
   clear: both;
 }
-/* line 22, ../../../components/sass/modules/_welcome.scss */
-#welcome .gallery img {
-  -moz-border-radius: 20%;
-  -webkit-border-radius: 20%;
-  border-radius: 20%;
-  display: none;
+/* line 18, ../../../components/sass/modules/_allmovies.scss */
+#allmovies .gallery img {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 3.33333%;
+  padding-right: 3.33333%;
+  display: inline;
 }
-@media (min-width: 650px) {
-  /* line 22, ../../../components/sass/modules/_welcome.scss */
-  #welcome .gallery img {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 25%;
-    float: left;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    display: inline;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(4n + 1) {
-    margin-left: 0;
-    margin-right: -100%;
-    clear: both;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(4n + 2) {
-    margin-left: 25%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(4n + 3) {
-    margin-left: 50%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(4n + 4) {
-    margin-left: 75%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 29, ../../../components/sass/modules/_welcome.scss */
-  #welcome .gallery img.hidesm {
-    display: none;
-  }
+/* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+#allmovies .gallery img:nth-child(3n + 1) {
+  margin-left: 0;
+  margin-right: -100%;
+  clear: both;
 }
-@media (min-width: 960px) {
-  /* line 22, ../../../components/sass/modules/_welcome.scss */
-  #welcome .gallery img {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 20%;
-    float: left;
-    padding-left: 2%;
-    padding-right: 2%;
-    display: inline;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(5n + 1) {
-    margin-left: 0;
-    margin-right: -100%;
-    clear: both;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(5n + 2) {
-    margin-left: 20%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(5n + 3) {
-    margin-left: 40%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(5n + 4) {
-    margin-left: 60%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-  #welcome .gallery img:nth-child(5n + 5) {
-    margin-left: 80%;
-    margin-right: -100%;
-    clear: none;
-  }
-  /* line 35, ../../../components/sass/modules/_welcome.scss */
-  #welcome .gallery img.hidesm {
-    display: inline;
-  }
+/* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+#allmovies .gallery img:nth-child(3n + 2) {
+  margin-left: 33.33333%;
+  margin-right: -100%;
+  clear: none;
+}
+/* line 66, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+#allmovies .gallery img:nth-child(3n + 3) {
+  margin-left: 66.66667%;
+  margin-right: -100%;
+  clear: none;
 }
 
 /* line 1, ../../../components/sass/modules/_events.scss */
