@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Movie Trade</title>
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+		<link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+		<script src="bundle.js"></script>
+	</head>
+
+	<body>
+		<header id="intro">
+			<article>
+				<div class="logo">
+					<h1>Movie Trade</h1>
+				</div>
+				<div class="user">
+					{{#if user}}
+					<!-- <a href=/logout>Log out</a>
+					<strong>{{user}}</strong> -->
+					<div>
+						<img src="images/user.svg" alt="User" title={{user.username}}/>
+						<!-- <i class="fa fa-user fa-2x"></i> -->
+					</div>
+					{{/if}}
+				</div>
+			</article>
+		</header>
+
+		<div id="hbs_content">
+			{{{body}}}
+		</div>
+
+	</body>
+
+</html>

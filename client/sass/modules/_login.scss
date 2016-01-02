@@ -1,0 +1,48 @@
+section.login {
+	@include backImage($image: 'images/background-blur.jpg', $bgPos: top center);
+
+	div.content {
+		height: 100%;
+		@include container(90%);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: $light;
+		font-size: 1.2em;
+		text-align: center;
+
+		// @include display-flex();
+		// @include align-items(center);
+		// @include justify-content(center);
+		// text-align: center;
+
+		a, a:visited {
+			color: $light;
+		}
+
+		form {
+
+			input {
+				height: 40px;
+				width: 90%;
+				// display: inline-block;
+				border-radius: 5px;
+				margin: 10px 0;
+				font-size: 1.3em;
+				outline: none;
+			}
+
+			input[type='submit'] {
+				background-color: $gold;
+				color: $light;
+				height: 50px;
+				margin-top: 20px;
+			} //input submit
+		} // form
+
+		p {
+			// display: block;
+		} // p
+
+	} // div.content
+}

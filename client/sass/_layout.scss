@@ -1,0 +1,34 @@
+body {
+  font: $mainFont;
+  // background: $green;
+  background: $backgroundColor;
+  color: $typeDefault;
+  width: 100%;
+  height: 100%;
+}
+
+#{headings()} {
+ font: $headFont;
+ color: $headColor;
+ font-weight: $bold;
+}
+
+strong {
+  font-weight: $bold;
+}
+
+p {
+  font-weight: $thin;
+  padding-bottom: 10px;
+}
+
+#hbs_content {
+  height: 100%;
+  width: 100%;
+}
+
+#angcontent {
+  @include container(95%);
+  padding-top: 7px;
+  padding-bottom: 50px;
+}

@@ -1,0 +1,46 @@
+header {
+	@include container;
+	background-color: purple;
+	z-index: 100;
+
+	.logo {
+		padding: 15px 0;
+		@include span(4);
+
+		h1 {
+			padding-left: 10px;
+			color: $gold;
+			font-size: 3em;
+			font-weight: $heavy;
+			line-height: 0.6em;
+			@include text-shadow($dark 0 0 20px);
+		}
+		// h1
+	}
+
+	// logo
+	.user {
+		padding-top: 20px;
+		@include span(last 2);
+		text-align: center;
+		color: $light;
+		div {
+			height: 50px;
+			width: 50px;
+			border: 1px solid $light;
+			// padding: 10px 3px;
+			border-radius: 50%;
+			position: relative;
+
+			img {
+				position: absolute;
+				height: 30px;
+				width: 30px;
+				top: 10px;
+				left: 10px;
+				color: $light;
+			}
+		}
+	}
+}
+//header

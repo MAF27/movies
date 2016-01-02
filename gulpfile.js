@@ -1,14 +1,29 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    browserify = require('gulp-browserify'),
-    compass = require('gulp-compass'),
-    connect = require('gulp-connect'),
-    gulpif = require('gulp-if'),
-    uglify = require('gulp-uglify'),
-    minifyHTML = require('gulp-minify-html'),
-    concat = require('gulp-concat'),
-    prefix = require('gulp-autoprefixer');
+// Gulp Dependencies
+var gulp = require('gulp');
+var rename = require('gulp-rename');
+var nodemon = require('gulp-nodemon');
+var notify = require('gulp-notify');
+var livereload = require('gulp-livereload');
+var gulpif = require('gulp-if');
+var gutil = require('gulp-util');
+var compass = require('gulp-compass');
+var minifyHTML = require('gulp-minify-html');
 
+// Build Dependencies
+var browserify = require('browserify');
+var watchify = require('watchify');
+var uglify = require('gulp-uglify');
+var source = require('vinyl-source-stream');
+
+// Style Dependencies
+var prefix = require('gulp-autoprefixer');
+var minifyCSS = require('gulp-minify-css');
+
+// Development Dependencies
+var jshint = require('gulp-jshint');
+
+// Test Dependencies
+var mochaPhantomjs = require('gulp-mocha-phantomjs');
 
 var env,
     jsSources,
@@ -27,67 +42,136 @@ if (env==='development') {
   sassStyle = 'compressed';
 }
 
-jsSources = [
-  'components/scripts/jqloader.js',
-  'components/scripts/TweenMax.min.js',
-  'components/scripts/jquery.scrollmagic.min.js',
-  'components/scripts/script.js',
-  'components/scripts/controllers.js'
-];
-sassSources = ['components/sass/style.scss'];
-htmlSources = [outputDir + '*.html'];
+jsSources = ['client/**/*.js'];
+sassSources = ['client/sass/style.scss'];
+htmlSources = [outputDir + '**/*.html'];
 
-gulp.task('js', function() {
-  gulp.src(jsSources)
-    .pipe(concat('script.js'))
-    .pipe(browserify())
-    .on('error', gutil.log)
-    .pipe(gulpif(env === 'production', uglify()))
-    .pipe(gulp.dest(outputDir + 'js'))
-    .pipe(connect.reload());
+// Browserify Watchify Setup
+var bundler = browserify({
+	// Required watchify args
+	cache: {},
+	packageCache: {},
+	entries: ['./client/app.js'],
+	debug: true
 });
 
-gulp.task('compass', function() {
-  gulp.src(sassSources)
+var handleErrors = function(e) {
+	console.log('Encountered error');
+	console.error(e);
+};
+
+var bundle = function() {
+	return bundler
+		.bundle()
+		.on('error', handleErrors)
+		.pipe(source('bundle.js'))
+		.pipe(gulp.dest(outputDir));
+};
+
+// GULP TASKS
+gulp.task('lint-client', function() {
+	return gulp.src('client/app.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'));
+});
+
+gulp.task('lint-test', function() {
+	return gulp.src('./test/**/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'));
+});
+
+gulp.task('browserify-client', ['lint-client'], function() {
+	return bundle();
+});
+
+gulp.task('browserify-test', ['lint-test'], function() {
+	return bundler
+		.bundle()
+		.on('error', handleErrors)
+		.pipe(source('test-bundle.js'))
+		.pipe(gulp.dest('build'));
+});
+
+gulp.task('test', ['lint-test', 'browserify-test'], function() {
+	return gulp.src('test/client/index.html')
+		.pipe(mochaPhantomjs());
+});
+
+gulp.task('styles', function() {
+	return gulp.src(sassSources)
     .pipe(compass({
-      sass: 'components/sass',
-      css: outputDir + 'css',
+      sass: 'client/sass',
+      css: outputDir,
       image: outputDir + 'images',
       style: sassStyle,
       require: ['susy', 'breakpoint']
     })
     .on('error', gutil.log))
-    .pipe(gulp.dest( outputDir + 'css'))
+    // .pipe(gulp.dest( outputDir + 'css'))
     .pipe(prefix({
 			cascade: true
-		}))
-    .pipe(connect.reload());
+		}));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(jsSources, ['js']);
-  gulp.watch(['components/sass/*.scss', 'components/sass/*/*.scss'], ['compass']);
-  gulp.watch('builds/development/*.html', ['html']);
+gulp.task('minify-css', ['styles'], function() {
+	return gulp.src(outputDir + 'style.css')
+		.pipe(minifyCSS())
+		.pipe(rename('style.min.css'));
 });
 
-gulp.task('connect', function() {
-  connect.server({
-    root: outputDir,
-    livereload: true
-  });
+gulp.task('uglify-js', ['browserify-client'], function() {
+	return gulp.src(outputDir + 'bundle.js')
+		.pipe(uglify())
+		.pipe(rename('bundle.min.js'));
+});
+
+gulp.task('reload', function(){
+	return livereload();
 });
 
 gulp.task('html', function() {
-  gulp.src('builds/development/**/*.html')
+  gulp.src('client/**/*.html')
     .pipe(gulpif(env === 'production', minifyHTML()))
-    .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(outputDir));
 });
 
-// Copy images to production
-gulp.task('move', function() {
-  gulp.src('builds/development/images/**/*.*')
-  .pipe(gulpif(env === 'production', gulp.dest(outputDir+'images')));
+gulp.task('images', function() {
+  gulp.src('client/images/*.*')
+    .pipe(gulp.dest(outputDir + 'images'));
 });
 
-gulp.task('default', ['watch', 'html', 'js', 'compass', 'move', 'connect']);
+gulp.task('build', ['uglify-js', 'minify-css', 'html', 'images']);
+
+gulp.task('default', ['build', 'watch']);
+// gulp.task('default', ['test', 'build', 'watch']);
+
+// WATCHING
+gulp.task('watch', function() {
+	var watchifyBundler = watchify(bundler);
+	watchifyBundler.on('update', bundle);
+	watchifyBundler.on('log', function(msg) {
+		console.log(msg);
+	});
+	gulp.watch('client/sass/**/*.scss', ['styles', 'reload']);
+	gulp.watch(['**/*.html', '**/*.hbs'], ['html', 'reload']);
+	gulp.watch(['client/images/*.*'], ['images', 'reload']);
+
+	// NODE
+	// listen for changes
+	livereload.listen();
+	// configure nodemon
+	nodemon({
+			// the script to run the app
+			script: 'server.js',
+			ext: 'js'
+		})
+		.on('restart', function() {
+			// when the app has restarted, run livereload.
+			gulp.src('server.js')
+				.pipe(livereload())
+				.pipe(notify('Reloading page, please wait...'));
+		});
+
+	return bundle();
+});

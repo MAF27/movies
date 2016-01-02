@@ -1,0 +1,24 @@
+<div id="search">
+	<form ng-submit="submitSearch();">
+		<h3>Where are you at?</h3>
+		<input type="text" placeholder="Enter your location ..." autofocus="true" ng-model="location">
+	</form>
+</div>
+
+<div ng-show="restaurants">
+	<h1>Bars in <span>{{location}}</span></h1>
+	<p ng-hide="user">Log in to see who's going where and add your voice.</p>
+
+	<div ng-hide="restaurants">Loading ...</div>
+	<ul ng-show="restaurants">
+		<li ng-repeat="restaurant in restaurants | orderBy: 'name'">
+			<p class="r-img">
+				<img ng-src="{{getImg(restaurant);}}" width="70px" height="70px" alt="Fabulous {{restaurant.name}}" /> </p>
+			<p class="r-name">{{restaurant.name}}</p>
+			<p class="r-desc">{{restaurant.snippet_text}}</p>
+			<p class="going" ng-show="user && showGoings(restaurant)" title="{{showAll(restaurant)}}">{{showGoings(restaurant);}}</p>
+			<button ng-show="user" class="" ng-click="handleButton(restaurant);">{{goNotGo(restaurant);}}</button>
+		</li>
+	</ul>
+
+</div>

@@ -1,0 +1,16 @@
+<section class="login contheight">
+	<div class="content">
+		<form action="/login" method="post">
+			<input autofocus="true" name="username" placeholder="Username" type="text"/>
+			<input name="password" placeholder="Password" type="password"/>
+			<input type="submit" value="Log In"/>
+		</form>
+		{{#if flash.error}}
+			<div class="error">Apologies, there was an error:&nbsp;{{flash.error}}<br></div>
+		{{/if}}
+		<p>Don't have an account?
+			<a href=/signup>
+				Register as new user</a>
+		</p>
+	</div>
+</section>
