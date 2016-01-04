@@ -1,4 +1,4 @@
-section.login {
+section.profile {
 	@include backImage($image: 'images/background-blur.jpg', $bgPos: top center);
 	display: flex;
 	flex-direction: column;
@@ -6,18 +6,11 @@ section.login {
 	text-align: center;
 
 	.content {
-		@include container(90%);
+		// @include container(90%);
 		color: $light;
-		font-size: 0.9em;
-		text-align: center;
-
-		a,
-		a:visited {
-			color: $light;
-		}
+		font-size: 1.2em;
 
 		form {
-
 			input {
 				height: 40px;
 				width: 90%;
@@ -31,16 +24,12 @@ section.login {
 			input[type='submit'] {
 				background-color: $gold;
 				color: $light;
-				font-weight: 500;
-				font-size: 1.2em;
+				height: 50px;
 				margin-top: 20px;
-				cursor: pointer;
-			} //input submit
-		} // form
-
-		p {
-			// display: block;
-		} // p
-
-	} // div.content
+			}
+//input submit
+		}
+// form
+	}
+// div.content
 }

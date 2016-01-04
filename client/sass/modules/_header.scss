@@ -15,15 +15,43 @@ header {
 			line-height: 0.6em;
 			@include text-shadow($dark 0 0 20px);
 		}
-		// h1
+// h1
 	}
+// logo
 
-	// logo
 	.user {
 		padding-top: 20px;
 		@include span(last 2);
 		text-align: center;
 		color: $light;
+
+		ul {
+			position: absolute;
+			top: 65px;
+			right: 15px;
+
+			li {
+				width: 125px;
+				border: 1px solid $iosblue;
+				background-color: $light;
+				color: $iosblue;
+				font-weight: 400;
+				text-align: left;
+				padding-left: 7px;
+			}
+
+			li:first-child {
+				border-top: 0;
+			}
+
+			a,
+			a:visited {
+				text-decoration: none;
+				color: $iosblue;
+				cursor: pointer;
+			}
+		}
+
 		div {
 			height: 50px;
 			width: 50px;

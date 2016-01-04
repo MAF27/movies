@@ -1,22 +1,25 @@
-<section class="signup contheight">
+<section class="profile contheight">
 	<div class="content">
 
-		<h3>Tell us about yourself</h3>
-		<form action="/signup" method="post">
+		<h3>View or change your particulars</h3>
+		<form action="/profile" method="post">
 			<div>
 				<input autofocus name="firstName" placeholder="First Name" required type="text" value="{{input.firstName}}"/>
 			</div>
 			<div>
 				<input name="lastName" placeholder="Last Name" required type="text" value="{{input.lastName}}"/>
 			</div>
+			<p>
+				Fill or change
+			</p>
 			<div>
-				<input name="username" placeholder="Username" required type="text" value="{{input.username}}"/>
+				<input name="city" placeholder="City" required type="text" value="{{input.city}}"/>
 			</div>
 			<div>
-				<input autocomplete="off" name="password" placeholder="Password" required type="password"/>
+				<input name="state" placeholder="State" required type="text" value="{{input.state}}"/>
 			</div>
 			<div>
-				<input type="submit" value="Sign up as new user"/>
+				<input type="submit" value="Save"/>
 			</div>
 			<span class="error-msg">{{error}}</span>
 		</form>

@@ -1,9 +1,9 @@
-var express 	= require('express');
-var passport 	= require("passport");
-var router 		= express.Router();
+var express = require('express');
+var passport = require('passport');
+var restrict = require('../auth/restrict');
+var router = express.Router();
 
-var UserService = require("../services/user-service");
-var restrict 		= require("../auth/restrict");
+var UserService = require('../services/user-service');
 
 router.get('/signup', function(req, res, next) {
 	res.render('signup');
@@ -30,23 +30,31 @@ router.post('/signup', function(req, res, next) {
 	});
 });
 
+router.post('/profile', function(req, res, next) {
+	UserService.updateUser(req.user, function(err) {
+		if (err) {
+			console.log(err);
+		}
+		res.redirect('/');
+	});
+});
+
 router.get('/login', function(req, res, next) {
 	res.render('login');
 });
 
 router.post('/login', passport.authenticate('local', {
-	failureRedirect: '/users/login',
+	failureRedirect: '/login',
 	successRedirect: '/',
 	failureFlash: true
 }));
 
 router.get('/logout', function(req, res, next) {
 	req.logout();
-	res.redirect('/');
+	res.redirect('/login');
 });
 
-// router.get('/profile', restrict, function(req, res, next) {
-router.get('/profile', function(req, res, next) {
+router.get('/profile', restrict, function(req, res, next) {
 	var vm = {
 		username: req.user ? req.user.firstName : null,
 		input: req.user

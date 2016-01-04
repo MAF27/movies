@@ -17,12 +17,14 @@
 				<div class="logo">
 					<h1>Movie Trade</h1>
 				</div>
-				<div class="user">
+				<div class="user" onclick="document.getElementById('usermenu').classList.toggle('hide');">
 					{{#if user}}
-					<!-- <a href=/logout>Log out</a>
-					<strong>{{user}}</strong> -->
+					<ul id="usermenu" class="hide">
+						<a href="/profile"><li>Profile</li></a>
+						<a href="/logout"><li>Logout {{user}}</li></a>
+					</ul>
 					<div>
-						<img src="images/user.svg" alt="User" title={{user.username}}/>
+						<img src="images/user.svg" alt="User" title={{user}}/>
 						<!-- <i class="fa fa-user fa-2x"></i> -->
 					</div>
 					{{/if}}
