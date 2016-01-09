@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100');
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100');
 @include border-box-sizing; // Box sizing like the old IE
 $susy: ( debug: ( image: hide, color: blue, output: overlay, toggle: top right ), columns: 12, gutter: 1/4, container: auto, gutter-position: inside );
 $narrow: 400px;
@@ -17,6 +17,7 @@ $pink: #CD0069;
 $purple: #6C71C4;
 $dark: #000000;
 $light: #FFFFFF;
+$lightgrey: #DEDEDE;
 $backgroundColor: $light;
 $typeDefault: $dark;
 $navBackground: $blue;

@@ -1,0 +1,20 @@
+section #addmovie {
+	input[type=text] {
+		outline: none;
+		background-color: $lightgrey;
+		border-radius: 4px;
+    border: 0;
+    font-size: 1.1em;
+    // margin-top: 3px;
+    padding: 3px;
+	}
+
+	input[type=submit] {
+		font-size: 1.1em;
+    background-color: $iosblue;
+    border-radius: 4px;
+    color: $light;
+    border: 0;
+	}
+}
+//addmovie

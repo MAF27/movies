@@ -55,6 +55,10 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'partials/mytrades.html',
 			controller: 'CtrlMyTrades'
 		})
+		.when('/addmovie', {
+			templateUrl: 'partials/addmovie.html',
+			controller: 'CtrlAddMovie'
+		})
 		.otherwise({
 			redirectTo: '/allmovies'
 		});

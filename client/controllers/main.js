@@ -1,8 +1,8 @@
-// globals angular
+var angular = require('angular');
 var movieControllers = angular.module('movieControllers', []);
 
 movieControllers.controller('CtrlAllMovies', ['$http', '$scope', function($http, $scope) {
-
+	console.log('CtrlAllMovies');
 	// MOCK MOVIES
 	$scope.movies = [
 		{
@@ -38,6 +38,15 @@ movieControllers.controller('CtrlAllMovies', ['$http', '$scope', function($http,
 	// for (var i = 0; i < $scope.movies.length; i++) {
 	// 	get(i, $scope.movies[i].id);
 	// }
+
+}]);
+
+movieControllers.controller('CtrlAddMovie', ['$http', '$scope', function($http, $scope) {
+	console.log('This is CtrlAddMovie');
+
+	$scope.search = function (s) {
+		console.log('Searching for ' + s);
+	};
 
 }]);
 

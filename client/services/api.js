@@ -1,5 +1,6 @@
-var app = require('angular')
-	.module('nightlife');
+// var app = require('angular').module('nightlife');
+var angular = require('angular');
+var app = angular.module('movies');
 
 app.factory('api', apiFactory);
 

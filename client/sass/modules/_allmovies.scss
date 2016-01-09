@@ -1,17 +1,22 @@
 #allmovies {
-  @include background-image(linear-gradient(top, $yellow, $orange));
 
   article {
     text-align: center;
-    @include container(90%);
+    @include container(95%);
   } //article
 
-  h1 {
+  h2 {
+    @include span(9);
     font-weight: normal;
     line-height: 100%;
     color: darken($orange, 20);
     padding: 10px 0;
   } //h1
+
+  p.add {
+    @include span(last 2);
+    text-align: center;
+  }
 
   .gallery {
     @include clearfix;

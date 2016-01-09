@@ -39,6 +39,7 @@
     "angular-cookies": "^1.4.8",
     "angular-route": "^1.4.8",
     "angular-router-browserify": "0.0.2",
+    "angular-ui-router": "^1.0.0-alpha0",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
     "connect-flash": "^0.1.1",
