@@ -389,6 +389,67 @@ section #addmovie input[type=submit] {
   color: #FFFFFF;
   border: 0;
 }
+/* line 20, ../../client/sass/modules/_addmovie.scss */
+section #addmovie article {
+  padding-top: 15px;
+}
+/* line 24, ../../client/sass/modules/_addmovie.scss */
+section #addmovie .gallery {
+  fill: #FFFFFF;
+}
+/* line 22, ../../client/sass/_mixins.scss */
+section #addmovie .gallery:before, section #addmovie .gallery:after {
+  content: '';
+  display: table;
+}
+/* line 27, ../../client/sass/_mixins.scss */
+section #addmovie .gallery:after {
+  clear: both;
+}
+/* line 28, ../../client/sass/modules/_addmovie.scss */
+section #addmovie .gallery div.slot {
+  padding: 5px 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 3.33333%;
+  padding-right: 3.33333%;
+  display: inline;
+  position: relative;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section #addmovie .gallery div.slot:nth-child(3n + 1) {
+  margin-left: 0;
+  margin-right: -100%;
+  clear: both;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section #addmovie .gallery div.slot:nth-child(3n + 2) {
+  margin-left: 33.33333%;
+  margin-right: -100%;
+  clear: none;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section #addmovie .gallery div.slot:nth-child(3n + 3) {
+  margin-left: 66.66667%;
+  margin-right: -100%;
+  clear: none;
+}
+/* line 35, ../../client/sass/modules/_addmovie.scss */
+section #addmovie .gallery div.slot img.poster {
+  z-index: -100;
+}
+/* line 39, ../../client/sass/modules/_addmovie.scss */
+section #addmovie .gallery div.slot a {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
 
 /* line 1, ../../client/sass/modules/_login.scss */
 section.login {

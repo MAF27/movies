@@ -37,7 +37,7 @@ var app = angular.module('movies', [require('angular-route'), require('angular-c
 	.run(function($rootScope, $http) {
 		$http.get('/api/user')
 			.then(function(userobj) {
-				$rootScope.userobj = userobj;
+				$rootScope.userobj = userobj.data;
 			});
 	});
 
@@ -63,14 +63,6 @@ app.config(['$routeProvider', function($routeProvider) {
 			redirectTo: '/allmovies'
 		});
 }]); // app.config
-
-angular.module('nightlife', [require('angular-route'), require('angular-cookies')])
-	.run(function($rootScope, $http) {
-		$http.get('/api/user')
-			.then(function(userobj) {
-				$rootScope.userobj = userobj;
-			});
-	});
 
 require('./controllers');
 require('./lib');

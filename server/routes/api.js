@@ -1,8 +1,8 @@
-var express 			= require('express');
-var router 				= express.Router();
+var express = require('express');
+var router = express.Router();
 
-var GoingService 	= require('../services/going-service');
-var Going 				= require("../models/going");
+// var MovieService = require('../services/movie-service');
+var Movie = require('../models/movie');
 
 // All routes relative to host/api
 router.get('/user', function(req, res) {
@@ -17,30 +17,27 @@ router.get('/user', function(req, res) {
 		};
 		res.status(200)
 			.json(user);
-	} else res.status(200)
-		.json(null);
+	} else {
+		res.status(200)
+			.json(null);
+	}
 });
 
-router.post('/going', function(req, res) {
-	var newGoing = new Going({
-		rest_id: req.body.rest_id,
-		user_id: req.body.user_id,
-		user_firstName: req.body.user_firstName,
-		user_lastName: req.body.user_lastName
-	});
+router.post('/movie', function(req, res) {
+	var newMovie = new Movie(req.body);
 
-	newGoing.save(function(err, user) {
+	newMovie.save(function(err, movie) {
 		if (err) {
 			res.status(500)
 				.json(err);
 		}
 		res.status(200)
-			.json(user);
+			.json(movie);
 	});
 });
 
-router.delete('/going', function(req, res) {
-	Going.remove({
+router.delete('/movie', function(req, res) {
+	Movie.remove({
 		$and: [
 			{
 				rest_id: req.query.rest_id
@@ -52,13 +49,15 @@ router.delete('/going', function(req, res) {
 		if (err) {
 			res.status(500)
 				.json(err);
-		} else res.status(200)
-			.json('OK');
+		} else {
+			res.status(200)
+				.json('OK');
+		}
 	});
 });
 
-router.get('/get-goings/:rest_id', function(req, res) {
-	Going.find({
+router.get('/movie', function(req, res) {
+	Movie.find({
 		rest_id: req.params.rest_id
 	}, function(err, goings) {
 		if (err) {
@@ -69,11 +68,5 @@ router.get('/get-goings/:rest_id', function(req, res) {
 		}
 	});
 });
-
-// router.get('/yelp/:location', function(req, res) {
-// 	var businesses = YelpService(req.params.location, 'bars', function(businesses){
-// 		res.status(200).json(businesses);
-// 	});
-// });
 
 module.exports = router;

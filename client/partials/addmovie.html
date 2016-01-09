@@ -6,4 +6,23 @@
 			<input type="submit" value="Search">
 		</form>
 	</div>
+
+	<article>
+		<div class="gallery">
+			<div class="slot" ng-repeat="movie in movies">
+				<a ng-click="saveMovie(movie);">
+					<img ng-src="images/ios-plus-blue.svg" width="35px" height="35px">
+				</a>
+				<img class="poster" ng-src='{{iprefix}}{{movie.poster_path}}{{isuffix}}' alt='{{movie.title}}' title='{{movie.title}}' height="150px" />
+			</div>
+		</div>
+	</article>
+
 </section>
+
+
+<!-- <article>
+	<div class="gallery">
+		<img ng-repeat="movie in movies" ng-src='{{iprefix}}{{movie.poster_path}}{{isuffix}}' alt='{{movie.title}}' title='{{movie.title}}' />
+	</div>
+</article> -->
