@@ -1,4 +1,7 @@
-section #addmovie {
+section#addmovie {
+	height: 100%;
+	position: relative;
+
 	input[type=text] {
 		outline: none;
 		background-color: $lightgrey;
@@ -11,10 +14,42 @@ section #addmovie {
 
 	input[type=submit] {
 		font-size: 1.1em;
-		background-color: $iosblue;
+		background-color: $gold;
 		border-radius: 4px;
 		color: $light;
 		border: 0;
+	}
+
+	.notification {
+		position: absolute;
+		z-index: 100;
+		width: 80%;
+		left: 10%;
+		border: 1px solid $lightgrey;
+		min-height: 15%;
+		top: 35%;
+		background-color: rgba(249, 249, 249, 0.9);
+		box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+		border-radius: 4px;
+		padding: 7px;
+		text-align: center;
+
+		p {
+			display: block;
+		}
+
+		button {
+			display: inline-block;
+			outline: none;
+			background-color: $iosblue;
+			color: $light;
+			font-size: 0.9em;
+			padding: 3px 20px;
+			margin-top: 5px;
+			border: 0;
+			border-radius: 4px;
+
+		}
 	}
 
 	article {

@@ -7,9 +7,14 @@
 		</form>
 	</div>
 
+	<div class="notification" ng-show="added_movie">
+		<p>"{{added_movie.title}}" was added to the library, thank you.</p>
+		<button ng-click="hide_added_movie();">OK</button>
+	</div>
+
 	<article>
 		<div class="gallery">
-			<div class="slot" ng-repeat="movie in movies">
+			<div class="slot" ng-repeat="movie in movies | filter: filternull">
 				<a ng-click="saveMovie(movie);">
 					<img ng-src="images/ios-plus-blue.svg" width="35px" height="35px">
 				</a>

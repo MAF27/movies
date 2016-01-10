@@ -57,16 +57,27 @@ router.delete('/movie', function(req, res) {
 });
 
 router.get('/movie', function(req, res) {
-	Movie.find({
-		rest_id: req.params.rest_id
-	}, function(err, goings) {
+	Movie.find({}, function(err, movies) {
 		if (err) {
-			console.log('Error /api/get-goings: ', err);
+			console.log('API Error getting movies: ', err);
 		} else {
 			return res.status(200)
-				.json(goings);
+				.json(movies);
 		}
 	});
+});
+
+router.get('/movie/:id', function(req, res) {
+	// Movie.find({
+	// 	rest_id: req.params.rest_id
+	// }, function(err, goings) {
+	// 	if (err) {
+	// 		console.log('Error /api/get-goings: ', err);
+	// 	} else {
+	// 		return res.status(200)
+	// 			.json(goings);
+	// 	}
+	// });
 });
 
 module.exports = router;

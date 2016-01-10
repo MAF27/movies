@@ -1,6 +1,6 @@
 header {
 	@include container;
-	background-color: purple;
+	background-color: $purple;
 	z-index: 100;
 
 	.logo {

@@ -6,10 +6,12 @@ var movieSchema = new Schema({
 	movie: {
 		id: String,
 		title: String,
+		release_date: String,
+		overview: String,
 		poster_path: String
 	},
-	user: {
-		id: String,
+	owner: {
+		_id: String,
 		firstName: String,
 		lastName: String,
 		username: String

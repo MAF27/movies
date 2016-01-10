@@ -2,13 +2,13 @@
 	<h2>Click or tap to trade</h2>
 	<p class="add">
 		<a href="/#/addmovie">
-			<img ng-src="images/ios-plus-outline.svg" width="35px" height="35px">
+			<img ng-src="images/ios-plus-blue.svg" width="35px" height="35px">
 		</a>
 	</p>
 
 	<article>
 		<div class="gallery">
-			<img ng-repeat="movie in movies" ng-src="{{movie.img}}" alt="{{movie.title}}" title="{{movie.title}}" height="150px" />
+			<img ng-repeat="movie in movies" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}" height="150px" />
 		</div>
 	</article>
 

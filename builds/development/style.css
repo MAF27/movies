@@ -72,6 +72,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 1, ../../client/sass/_layout.scss */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 6, ../../client/sass/_layout.scss */
 body {
   font: 200 1em/1.5em "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #FFFFFF;
@@ -80,32 +86,38 @@ body {
   height: 100%;
 }
 
-/* line 10, ../../client/sass/_layout.scss */
+/* line 15, ../../client/sass/_layout.scss */
 h1, h2, h3, h4, h5, h6 {
   font: 200 1.5em/1.5em "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #0f83a0;
   font-weight: 600;
 }
 
-/* line 16, ../../client/sass/_layout.scss */
+/* line 21, ../../client/sass/_layout.scss */
 strong {
   font-weight: 600;
 }
 
-/* line 20, ../../client/sass/_layout.scss */
+/* line 25, ../../client/sass/_layout.scss */
 p {
   font-weight: 200;
   padding-bottom: 10px;
 }
 
-/* line 25, ../../client/sass/_layout.scss */
+/* line 30, ../../client/sass/_layout.scss */
 #hbs_content {
   height: 100%;
   width: 100%;
 }
 
-/* line 30, ../../client/sass/_layout.scss */
+/* line 35, ../../client/sass/_layout.scss */
+#angwrapper {
+  height: 100%;
+}
+
+/* line 39, ../../client/sass/_layout.scss */
 #angcontent {
+  height: 100%;
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -119,7 +131,7 @@ p {
   clear: both;
 }
 
-/* line 36, ../../client/sass/_layout.scss */
+/* line 46, ../../client/sass/_layout.scss */
 .hide {
   display: none;
 }
@@ -129,7 +141,7 @@ header {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-color: purple;
+  background-color: #6C71C4;
   z-index: 100;
 }
 /* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
@@ -292,20 +304,20 @@ header .user div img {
 }
 
 /* line 3, ../../client/sass/modules/_allmovies.scss */
-#allmovies article {
+section#allmovies article {
   text-align: center;
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
 }
 /* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-#allmovies article:after {
+section#allmovies article:after {
   content: " ";
   display: block;
   clear: both;
 }
 /* line 8, ../../client/sass/modules/_allmovies.scss */
-#allmovies h2 {
+section#allmovies h2 {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -319,7 +331,7 @@ header .user div img {
   padding: 10px 0;
 }
 /* line 16, ../../client/sass/modules/_allmovies.scss */
-#allmovies p.add {
+section#allmovies p.add {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -330,17 +342,17 @@ header .user div img {
   text-align: center;
 }
 /* line 22, ../../client/sass/_mixins.scss */
-#allmovies .gallery:before, #allmovies .gallery:after {
+section#allmovies .gallery:before, section#allmovies .gallery:after {
   content: '';
   display: table;
 }
 /* line 27, ../../client/sass/_mixins.scss */
-#allmovies .gallery:after {
+section#allmovies .gallery:after {
   clear: both;
 }
 /* line 23, ../../client/sass/modules/_allmovies.scss */
-#allmovies .gallery img {
-  padding: 5px 0;
+section#allmovies .gallery img {
+  margin: 5px 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -352,28 +364,34 @@ header .user div img {
   padding-left: 3.33333%;
   padding-right: 3.33333%;
   display: inline;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-#allmovies .gallery img:nth-child(3n + 1) {
+section#allmovies .gallery img:nth-child(3n + 1) {
   margin-left: 0;
   margin-right: -100%;
   clear: both;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-#allmovies .gallery img:nth-child(3n + 2) {
+section#allmovies .gallery img:nth-child(3n + 2) {
   margin-left: 33.33333%;
   margin-right: -100%;
   clear: none;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-#allmovies .gallery img:nth-child(3n + 3) {
+section#allmovies .gallery img:nth-child(3n + 3) {
   margin-left: 66.66667%;
   margin-right: -100%;
   clear: none;
 }
 
-/* line 2, ../../client/sass/modules/_addmovie.scss */
-section #addmovie input[type=text] {
+/* line 1, ../../client/sass/modules/_addmovie.scss */
+section#addmovie {
+  height: 100%;
+  position: relative;
+}
+/* line 5, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=text] {
   outline: none;
   background-color: #DEDEDE;
   border-radius: 4px;
@@ -381,33 +399,64 @@ section #addmovie input[type=text] {
   font-size: 1.1em;
   padding: 3px;
 }
-/* line 12, ../../client/sass/modules/_addmovie.scss */
-section #addmovie input[type=submit] {
+/* line 15, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=submit] {
   font-size: 1.1em;
-  background-color: #0076FF;
+  background-color: #F5A623;
   border-radius: 4px;
   color: #FFFFFF;
   border: 0;
 }
-/* line 20, ../../client/sass/modules/_addmovie.scss */
-section #addmovie article {
+/* line 23, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification {
+  position: absolute;
+  z-index: 100;
+  width: 80%;
+  left: 10%;
+  border: 1px solid #DEDEDE;
+  min-height: 15%;
+  top: 35%;
+  background-color: rgba(249, 249, 249, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+  border-radius: 4px;
+  padding: 7px;
+  text-align: center;
+}
+/* line 37, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification p {
+  display: block;
+}
+/* line 41, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification button {
+  display: inline-block;
+  outline: none;
+  background-color: #0076FF;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  padding: 3px 20px;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 4px;
+}
+/* line 55, ../../client/sass/modules/_addmovie.scss */
+section#addmovie article {
   padding-top: 15px;
 }
-/* line 24, ../../client/sass/modules/_addmovie.scss */
-section #addmovie .gallery {
+/* line 59, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery {
   fill: #FFFFFF;
 }
 /* line 22, ../../client/sass/_mixins.scss */
-section #addmovie .gallery:before, section #addmovie .gallery:after {
+section#addmovie .gallery:before, section#addmovie .gallery:after {
   content: '';
   display: table;
 }
 /* line 27, ../../client/sass/_mixins.scss */
-section #addmovie .gallery:after {
+section#addmovie .gallery:after {
   clear: both;
 }
-/* line 28, ../../client/sass/modules/_addmovie.scss */
-section #addmovie .gallery div.slot {
+/* line 63, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -423,29 +472,29 @@ section #addmovie .gallery div.slot {
   position: relative;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section #addmovie .gallery div.slot:nth-child(3n + 1) {
+section#addmovie .gallery div.slot:nth-child(3n + 1) {
   margin-left: 0;
   margin-right: -100%;
   clear: both;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section #addmovie .gallery div.slot:nth-child(3n + 2) {
+section#addmovie .gallery div.slot:nth-child(3n + 2) {
   margin-left: 33.33333%;
   margin-right: -100%;
   clear: none;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section #addmovie .gallery div.slot:nth-child(3n + 3) {
+section#addmovie .gallery div.slot:nth-child(3n + 3) {
   margin-left: 66.66667%;
   margin-right: -100%;
   clear: none;
 }
-/* line 35, ../../client/sass/modules/_addmovie.scss */
-section #addmovie .gallery div.slot img.poster {
+/* line 70, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot img.poster {
   z-index: -100;
 }
-/* line 39, ../../client/sass/modules/_addmovie.scss */
-section #addmovie .gallery div.slot a {
+/* line 74, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot a {
   position: absolute;
   right: 5px;
   top: 5px;
