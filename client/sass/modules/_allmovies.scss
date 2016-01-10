@@ -1,4 +1,6 @@
 section#allmovies {
+  height: 100%;
+  position: relative;
 
   article {
     text-align: center;
@@ -18,14 +20,57 @@ section#allmovies {
     text-align: center;
   }
 
+  .notification {
+    position: absolute;
+    z-index: 100;
+    width: 80%;
+    left: 10%;
+    border: 1px solid $lightgrey;
+    min-height: 15%;
+    top: 35%;
+    background-color: rgba(249, 249, 249, 0.95);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+    border-radius: 4px;
+    padding: 7px;
+    text-align: center;
+
+    p {
+      display: block;
+    }
+
+    button {
+      display: inline-block;
+      outline: none;
+      background-color: $iosblue;
+      color: $light;
+      font-size: 0.9em;
+      padding: 3px 20px;
+      margin-top: 5px;
+      border: 0;
+      border-radius: 4px;
+
+    }
+  }
+
   .gallery {
-    @include clearfix;
-    img {
-      margin: 5px 0;
+
+    div.slot {
+      padding: 5px 0;
       @include border-radius(5px);
       @include gallery(1 of 3);
       display: inline;
-      box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-    } //img
+      position: relative;
+
+      img.poster {
+        z-index: -100;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+      }
+
+      a {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+      }
+    } // slot
   } //gallery
 } //welcome

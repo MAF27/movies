@@ -67,7 +67,6 @@ section#addmovie {
 
 	.gallery {
 		@include clearfix;
-		fill: $light; // For SVG
 
 		div.slot {
 			padding: 5px 0;

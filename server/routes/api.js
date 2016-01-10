@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-// var MovieService = require('../services/movie-service');
 var Movie = require('../models/movie');
+var Trade = require('../models/trade');
 
 // All routes relative to host/api
 router.get('/user', function(req, res) {
@@ -46,6 +46,20 @@ router.get('/movie', function(req, res) {
 		}
 	});
 });
+
+router.post('/trade', function(req, res) {
+	var newTrade = new Trade(req.body);
+
+	newTrade.save(function(err, trade) {
+		if (err) {
+			res.status(500)
+				.json(err);
+		}
+		res.status(200)
+			.json(trade);
+	});
+});
+
 
 router.get('/movie/:id', function(req, res) {
 	// Movie.find({
