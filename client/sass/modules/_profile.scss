@@ -5,6 +5,12 @@ section.profile {
 	justify-content: center;
 	text-align: center;
 
+	h3 {
+		background-color: rgba(230,230,230,.5);
+		margin-bottom: 30px;
+		padding: 9px 0;
+	}
+
 	.content {
 		// @include container(90%);
 		color: $light;

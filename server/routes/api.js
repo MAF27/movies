@@ -36,26 +36,6 @@ router.post('/movie', function(req, res) {
 	});
 });
 
-router.delete('/movie', function(req, res) {
-	Movie.remove({
-		$and: [
-			{
-				rest_id: req.query.rest_id
-			},
-			{
-				user_id: req.query.user_id
-			}]
-	}, function(err) {
-		if (err) {
-			res.status(500)
-				.json(err);
-		} else {
-			res.status(200)
-				.json('OK');
-		}
-	});
-});
-
 router.get('/movie', function(req, res) {
 	Movie.find({}, function(err, movies) {
 		if (err) {

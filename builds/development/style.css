@@ -408,6 +408,15 @@ section#addmovie input[type=submit] {
   border: 0;
 }
 /* line 23, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=button] {
+  font-size: 0.9em;
+  background-color: #0076FF;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 5px 7px;
+}
+/* line 32, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification {
   position: absolute;
   z-index: 100;
@@ -422,11 +431,11 @@ section#addmovie .notification {
   padding: 7px;
   text-align: center;
 }
-/* line 37, ../../client/sass/modules/_addmovie.scss */
+/* line 46, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification p {
   display: block;
 }
-/* line 41, ../../client/sass/modules/_addmovie.scss */
+/* line 50, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification button {
   display: inline-block;
   outline: none;
@@ -438,11 +447,11 @@ section#addmovie .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 55, ../../client/sass/modules/_addmovie.scss */
+/* line 64, ../../client/sass/modules/_addmovie.scss */
 section#addmovie article {
   padding-top: 15px;
 }
-/* line 59, ../../client/sass/modules/_addmovie.scss */
+/* line 68, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery {
   fill: #FFFFFF;
 }
@@ -455,7 +464,7 @@ section#addmovie .gallery:before, section#addmovie .gallery:after {
 section#addmovie .gallery:after {
   clear: both;
 }
-/* line 63, ../../client/sass/modules/_addmovie.scss */
+/* line 72, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
@@ -489,11 +498,11 @@ section#addmovie .gallery div.slot:nth-child(3n + 3) {
   margin-right: -100%;
   clear: none;
 }
-/* line 70, ../../client/sass/modules/_addmovie.scss */
+/* line 79, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot img.poster {
   z-index: -100;
 }
-/* line 74, ../../client/sass/modules/_addmovie.scss */
+/* line 83, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot a {
   position: absolute;
   right: 5px;
@@ -606,11 +615,17 @@ section.profile {
   text-align: center;
 }
 /* line 8, ../../client/sass/modules/_profile.scss */
+section.profile h3 {
+  background-color: rgba(230, 230, 230, 0.5);
+  margin-bottom: 30px;
+  padding: 9px 0;
+}
+/* line 14, ../../client/sass/modules/_profile.scss */
 section.profile .content {
   color: #FFFFFF;
   font-size: 1.2em;
 }
-/* line 14, ../../client/sass/modules/_profile.scss */
+/* line 20, ../../client/sass/modules/_profile.scss */
 section.profile .content form input {
   height: 40px;
   width: 90%;
@@ -620,7 +635,7 @@ section.profile .content form input {
   outline: none;
   padding: 5px;
 }
-/* line 24, ../../client/sass/modules/_profile.scss */
+/* line 30, ../../client/sass/modules/_profile.scss */
 section.profile .content form input[type='submit'] {
   background-color: #F5A623;
   color: #FFFFFF;

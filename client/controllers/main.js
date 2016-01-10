@@ -12,7 +12,7 @@ movieControllers.controller('CtrlAllMovies', ['$http', '$scope', function($http,
 
 }]);
 
-movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope) {
+movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, $location) {
 	console.log('This is CtrlAddMovie');
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
@@ -49,8 +49,11 @@ movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope) 
 	};
 
 	$scope.filternull = function(item) {
-		// console.log('* Filter Null: ', a, e);
 		return item.poster_path !== null;
+	};
+
+	$scope.back = function () {
+		$location.path('/allmovies');
 	};
 
 });

@@ -20,6 +20,15 @@ section#addmovie {
 		border: 0;
 	}
 
+	input[type=button] {
+		font-size: 0.9em;
+		background-color: $iosblue;
+		border-radius: 4px;
+		color: $light;
+		border: 0;
+		padding: 5px 7px;
+	}
+
 	.notification {
 		position: absolute;
 		z-index: 100;

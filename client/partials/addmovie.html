@@ -4,6 +4,7 @@
 		<form id="searchform" ng-submit="search(searchfield)">
 			<input type="text" autofocus="true" ng-model="searchfield">
 			<input type="submit" value="Search">
+			<input type="button" value="Done" ng-click="back();">
 		</form>
 	</div>
 
@@ -24,10 +25,3 @@
 	</article>
 
 </section>
-
-
-<!-- <article>
-	<div class="gallery">
-		<img ng-repeat="movie in movies" ng-src='{{iprefix}}{{movie.poster_path}}{{isuffix}}' alt='{{movie.title}}' title='{{movie.title}}' />
-	</div>
-</article> -->

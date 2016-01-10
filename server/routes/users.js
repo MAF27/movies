@@ -31,7 +31,12 @@ router.post('/signup', function(req, res, next) {
 });
 
 router.post('/profile', function(req, res, next) {
-	UserService.updateUser(req.user, function(err) {
+	var user = req.body;
+	user._id = req.user._id;
+
+	console.log('* PROFILE SAVE: ', user);
+
+	UserService.updateUser(user, function(err) {
 		if (err) {
 			console.log(err);
 		}
