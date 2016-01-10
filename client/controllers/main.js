@@ -28,9 +28,9 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 					_id: movie.movie.id,
 					title: movie.movie.title,
 					poster_path: movie.movie.poster_path
-				}
+				},
+				status: 'open'
 			};
-			console.log('Add Trade: ', body);
 			return $http.post('/api/trade', body)
 				.then(function(result) {
 					$scope.trade = body;
@@ -91,10 +91,52 @@ movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, 
 
 });
 
-movieControllers.controller('CtrlMyMovies', ['$http', '$scope', function($http, $scope) {
+movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) {
 	$scope.msg = 'This is CtrlMyMovies';
-}]);
+});
 
-movieControllers.controller('CtrlMyTrades', ['$http', '$scope', function($http, $scope) {
-	$scope.msg = 'This is CtrlMyTrades';
-}]);
+movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) {
+	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
+	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
+
+	$http.get('/api/trade')
+		.then(function(result) {
+			$scope.trades = result.data;
+		});
+
+	$scope.format = function (date) {
+		var d = new Date(date);
+		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+		var months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  	return days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate();
+	};
+
+	$scope.openRequests = function (item) {
+		return (item.status === 'open' && item.owner._id === $rootScope.userobj._id);
+	};
+
+	$scope.borrowed = function (item) {
+		return (item.status === 'accepted' && item.loaner._id === $rootScope.userobj._id);
+	};
+
+	$scope.accept = function (trade) {
+		trade.status = 'accepted';
+		$http.put('/api/trade', trade)
+			.then(function(result) {
+			});
+	};
+
+	$scope.decline = function (trade) {
+		trade.status = 'declined';
+		$http.put('/api/trade', trade)
+			.then(function(result) {
+			});
+	};
+
+	$scope.return = function (trade) {
+		trade.status = 'returned';
+		$http.put('/api/trade', trade)
+			.then(function(result) {
+			});
+	};
+});

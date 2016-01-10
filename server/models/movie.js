@@ -19,7 +19,8 @@ var movieSchema = new Schema({
 	created: {
 		type: Date,
 		'default': Date.now
-	}
+	},
+	status: String
 });
 
 var Movie = mongoose.model('Movie', movieSchema);

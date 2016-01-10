@@ -1,6 +1,7 @@
 section#allmovies {
   height: 100%;
   position: relative;
+  @include container(95%);
 
   article {
     text-align: center;

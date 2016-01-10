@@ -1,0 +1,131 @@
+section#mytrades {
+	height: 100%;
+	position: relative;
+	@include container(95%);
+
+	h1 {
+		margin-bottom: 10px;
+	}
+
+	article {
+		text-align: center;
+		@include container(95%);
+	}
+
+	button {
+		display: block;
+		margin-bottom: 5px;
+		min-width: 75px;
+		font-size: 0.9em;
+		border-radius: 4px;
+		color: $light;
+		border: 0;
+		padding: 5px 7px;
+	}
+
+	button.accept {
+		background-color: #4DB748;
+	}
+
+	button.decline {
+		background-color: #FE3824;
+	}
+
+	button.return {
+		background-color: #4DB748;
+	}
+
+	div.requests {
+		@include clearfix;
+		@include container;
+	}
+
+	img.poster {
+		@include span(4);
+		margin: 3px 0;
+		box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+	}
+
+	div.notes {
+		@include span(last 7);
+		text-align: left;
+
+		p {
+			font-weight: 700;
+			padding: 0;
+			margin: 0;
+
+			&:last-of-type {
+				margin-bottom: 25px;
+			}
+		}
+
+		button {
+			display: block;
+			margin-bottom: 5px;
+			min-width: 75px;
+			font-size: 0.9em;
+			border-radius: 4px;
+			color: $light;
+			border: 0;
+			padding: 5px 7px;
+		}
+	}
+
+	h2 {
+		@include span(9);
+		font-weight: normal;
+		line-height: 100%;
+		color: darken($orange, 20);
+		padding: 10px 0;
+	}
+//h1
+
+	div.borrowed {
+		@include clearfix;
+		@include container;
+
+		button {
+			display: block;
+			margin-bottom: 5px;
+			min-width: 75px;
+			font-size: 0.9em;
+			border-radius: 4px;
+			color: $light;
+			border: 0;
+			padding: 5px 7px;
+			background-color: $iosblue;
+		}
+	}
+
+	.notification {
+		position: absolute;
+		z-index: 100;
+		width: 80%;
+		left: 10%;
+		border: 1px solid $lightgrey;
+		min-height: 15%;
+		top: 35%;
+		background-color: rgba(249, 249, 249, 0.95);
+		box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+		border-radius: 4px;
+		padding: 7px;
+		text-align: center;
+
+		p {
+			display: block;
+		}
+
+		button {
+			display: inline-block;
+			outline: none;
+			background-color: $iosblue;
+			color: $light;
+			font-size: 0.9em;
+			padding: 3px 20px;
+			margin-top: 5px;
+			border: 0;
+			border-radius: 4px;
+		}
+	}
+}

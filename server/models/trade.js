@@ -18,7 +18,8 @@ var tradeSchema = new Schema({
 	created: {
 		type: Date,
 		'default': Date.now
-	}
+	},
+	status: String
 });
 
 var Trade = mongoose.model('Trade', tradeSchema);

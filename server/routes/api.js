@@ -60,6 +60,35 @@ router.post('/trade', function(req, res) {
 	});
 });
 
+router.put('/trade', function(req, res) {
+	console.log('* PUT TRADE: ', req.body._id, req.body.status);
+	Trade.update({
+		_id: req.body._id
+	}, {
+		$set: {
+			status: req.body.status
+		}
+	}, function(err) {
+		if (err) {
+			res.status(500)
+				.json(err);
+		}
+		res.status(200)
+			.json(Trade);
+	});
+});
+
+router.get('/trade', function(req, res) {
+	Trade.find({}, function(err, movies) {
+		if (err) {
+			console.log('API Error getting trades: ', err);
+		} else {
+			return res.status(200)
+				.json(movies);
+		}
+	});
+});
+
 
 router.get('/movie/:id', function(req, res) {
 	// Movie.find({

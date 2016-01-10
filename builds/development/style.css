@@ -118,7 +118,7 @@ p {
 /* line 39, ../../client/sass/_layout.scss */
 #angcontent {
   height: 100%;
-  max-width: 95%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 7px;
@@ -309,8 +309,17 @@ header .user div img {
 section#allmovies {
   height: 100%;
   position: relative;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* line 5, ../../client/sass/modules/_allmovies.scss */
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#allmovies:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 6, ../../client/sass/modules/_allmovies.scss */
 section#allmovies article {
   text-align: center;
   max-width: 95%;
@@ -323,7 +332,7 @@ section#allmovies article:after {
   display: block;
   clear: both;
 }
-/* line 10, ../../client/sass/modules/_allmovies.scss */
+/* line 11, ../../client/sass/modules/_allmovies.scss */
 section#allmovies h2 {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -337,7 +346,7 @@ section#allmovies h2 {
   color: #a24a19;
   padding: 10px 0;
 }
-/* line 18, ../../client/sass/modules/_allmovies.scss */
+/* line 19, ../../client/sass/modules/_allmovies.scss */
 section#allmovies p.add {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -348,7 +357,7 @@ section#allmovies p.add {
   padding-right: 0.83333%;
   text-align: center;
 }
-/* line 23, ../../client/sass/modules/_allmovies.scss */
+/* line 24, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .notification {
   position: absolute;
   z-index: 100;
@@ -363,11 +372,11 @@ section#allmovies .notification {
   padding: 7px;
   text-align: center;
 }
-/* line 37, ../../client/sass/modules/_allmovies.scss */
+/* line 38, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .notification p {
   display: block;
 }
-/* line 41, ../../client/sass/modules/_allmovies.scss */
+/* line 42, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .notification button {
   display: inline-block;
   outline: none;
@@ -379,7 +388,7 @@ section#allmovies .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 57, ../../client/sass/modules/_allmovies.scss */
+/* line 58, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
@@ -413,12 +422,12 @@ section#allmovies .gallery div.slot:nth-child(3n + 3) {
   margin-right: -100%;
   clear: none;
 }
-/* line 64, ../../client/sass/modules/_allmovies.scss */
+/* line 65, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .gallery div.slot img.poster {
   z-index: -100;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
-/* line 69, ../../client/sass/modules/_allmovies.scss */
+/* line 70, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .gallery div.slot a {
   position: absolute;
   right: 5px;
@@ -429,8 +438,17 @@ section#allmovies .gallery div.slot a {
 section#addmovie {
   height: 100%;
   position: relative;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* line 5, ../../client/sass/modules/_addmovie.scss */
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#addmovie:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 6, ../../client/sass/modules/_addmovie.scss */
 section#addmovie input[type=text] {
   outline: none;
   background-color: #DEDEDE;
@@ -439,7 +457,7 @@ section#addmovie input[type=text] {
   font-size: 1.1em;
   padding: 3px;
 }
-/* line 15, ../../client/sass/modules/_addmovie.scss */
+/* line 16, ../../client/sass/modules/_addmovie.scss */
 section#addmovie input[type=submit] {
   font-size: 1.1em;
   background-color: #F5A623;
@@ -447,7 +465,7 @@ section#addmovie input[type=submit] {
   color: #FFFFFF;
   border: 0;
 }
-/* line 23, ../../client/sass/modules/_addmovie.scss */
+/* line 24, ../../client/sass/modules/_addmovie.scss */
 section#addmovie input[type=button] {
   font-size: 0.9em;
   background-color: #0076FF;
@@ -456,7 +474,7 @@ section#addmovie input[type=button] {
   border: 0;
   padding: 5px 7px;
 }
-/* line 32, ../../client/sass/modules/_addmovie.scss */
+/* line 33, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification {
   position: absolute;
   z-index: 100;
@@ -471,11 +489,11 @@ section#addmovie .notification {
   padding: 7px;
   text-align: center;
 }
-/* line 46, ../../client/sass/modules/_addmovie.scss */
+/* line 47, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification p {
   display: block;
 }
-/* line 50, ../../client/sass/modules/_addmovie.scss */
+/* line 51, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification button {
   display: inline-block;
   outline: none;
@@ -487,7 +505,7 @@ section#addmovie .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 64, ../../client/sass/modules/_addmovie.scss */
+/* line 65, ../../client/sass/modules/_addmovie.scss */
 section#addmovie article {
   padding-top: 15px;
 }
@@ -500,7 +518,7 @@ section#addmovie .gallery:before, section#addmovie .gallery:after {
 section#addmovie .gallery:after {
   clear: both;
 }
-/* line 71, ../../client/sass/modules/_addmovie.scss */
+/* line 72, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
@@ -534,15 +552,213 @@ section#addmovie .gallery div.slot:nth-child(3n + 3) {
   margin-right: -100%;
   clear: none;
 }
-/* line 78, ../../client/sass/modules/_addmovie.scss */
+/* line 79, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot img.poster {
   z-index: -100;
 }
-/* line 82, ../../client/sass/modules/_addmovie.scss */
+/* line 83, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot a {
   position: absolute;
   right: 5px;
   top: 5px;
+}
+
+/* line 1, ../../client/sass/modules/_mytrades.scss */
+section#mytrades {
+  height: 100%;
+  position: relative;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mytrades:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 6, ../../client/sass/modules/_mytrades.scss */
+section#mytrades h1 {
+  margin-bottom: 10px;
+}
+/* line 10, ../../client/sass/modules/_mytrades.scss */
+section#mytrades article {
+  text-align: center;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mytrades article:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 15, ../../client/sass/modules/_mytrades.scss */
+section#mytrades button {
+  display: block;
+  margin-bottom: 5px;
+  min-width: 75px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 5px 7px;
+}
+/* line 26, ../../client/sass/modules/_mytrades.scss */
+section#mytrades button.accept {
+  background-color: #4DB748;
+}
+/* line 30, ../../client/sass/modules/_mytrades.scss */
+section#mytrades button.decline {
+  background-color: #FE3824;
+}
+/* line 34, ../../client/sass/modules/_mytrades.scss */
+section#mytrades button.return {
+  background-color: #4DB748;
+}
+/* line 38, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.requests {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 22, ../../client/sass/_mixins.scss */
+section#mytrades div.requests:before, section#mytrades div.requests:after {
+  content: '';
+  display: table;
+}
+/* line 27, ../../client/sass/_mixins.scss */
+section#mytrades div.requests:after {
+  clear: both;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mytrades div.requests:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 43, ../../client/sass/modules/_mytrades.scss */
+section#mytrades img.poster {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  margin: 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+}
+/* line 49, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.notes {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 58.33333%;
+  float: right;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  text-align: left;
+}
+/* line 53, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.notes p {
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+/* line 58, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.notes p:last-of-type {
+  margin-bottom: 25px;
+}
+/* line 63, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.notes button {
+  display: block;
+  margin-bottom: 5px;
+  min-width: 75px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 5px 7px;
+}
+/* line 75, ../../client/sass/modules/_mytrades.scss */
+section#mytrades h2 {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 75%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  font-weight: normal;
+  line-height: 100%;
+  color: #a24a19;
+  padding: 10px 0;
+}
+/* line 84, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.borrowed {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 22, ../../client/sass/_mixins.scss */
+section#mytrades div.borrowed:before, section#mytrades div.borrowed:after {
+  content: '';
+  display: table;
+}
+/* line 27, ../../client/sass/_mixins.scss */
+section#mytrades div.borrowed:after {
+  clear: both;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mytrades div.borrowed:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 88, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.borrowed button {
+  display: block;
+  margin-bottom: 5px;
+  min-width: 75px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 5px 7px;
+  background-color: #0076FF;
+}
+/* line 101, ../../client/sass/modules/_mytrades.scss */
+section#mytrades .notification {
+  position: absolute;
+  z-index: 100;
+  width: 80%;
+  left: 10%;
+  border: 1px solid #DEDEDE;
+  min-height: 15%;
+  top: 35%;
+  background-color: rgba(249, 249, 249, 0.95);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+  border-radius: 4px;
+  padding: 7px;
+  text-align: center;
+}
+/* line 115, ../../client/sass/modules/_mytrades.scss */
+section#mytrades .notification p {
+  display: block;
+}
+/* line 119, ../../client/sass/modules/_mytrades.scss */
+section#mytrades .notification button {
+  display: inline-block;
+  outline: none;
+  background-color: #0076FF;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  padding: 3px 20px;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 4px;
 }
 
 /* line 1, ../../client/sass/modules/_login.scss */
@@ -677,39 +893,4 @@ section.profile .content form input[type='submit'] {
   color: #FFFFFF;
   height: 50px;
   margin-top: 20px;
-}
-
-/* line 1, ../../client/sass/modules/_footer.scss */
-footer {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background: #333333;
-  padding: 30px 0;
-}
-/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-footer:after {
-  content: " ";
-  display: block;
-  clear: both;
-}
-/* line 5, ../../client/sass/modules/_footer.scss */
-footer #socialmedia {
-  text-align: center;
-}
-/* line 7, ../../client/sass/modules/_footer.scss */
-footer #socialmedia ul {
-  list-style: none;
-}
-/* line 9, ../../client/sass/modules/_footer.scss */
-footer #socialmedia ul li {
-  display: inline-block;
-  padding: 0 10px;
-}
-/* line 12, ../../client/sass/modules/_footer.scss */
-footer #socialmedia ul li img {
-  width: 30px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
 }
