@@ -20,5 +20,25 @@
 	</div>
 </nav>
 
-<h1>This is MY Movies</h1>
-<p>A message from the controller: {{msg}}</p>
+<section id="mymovies">
+	<h2>My Movies</h2>
+
+	<div class="notification" ng-show="msg">
+		<p>{{msg}}</p>
+		<button ng-click="hide_msg();">OK</button>
+	</div>
+
+	<article>
+		<div class="gallery">
+			<div class="slot" ng-repeat="movie in myMovies | orderBy:'title'" ng-click="">
+				<a ng-click="movieDetails(movie)">
+					<img ng-show="movie.borrowed" ng-src="images/borrowed.png" width="30px" height="30px">
+					<!-- <img ng-src="images/onloan.png" width="30px" height="30px"> -->
+					<img ng-show="movie.onloan" ng-src="images/onloan.png" width="30px" height="30px">
+				</a>
+				<img class="poster" ng-src="{{iprefix}}{{movie.poster_path}}{{isuffix}}" alt="{{movie.title}}" title="{{movie.title}}" height="150px" />
+			</div>
+		</div>
+	</article>
+
+</section>

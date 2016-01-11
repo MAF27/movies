@@ -305,6 +305,140 @@ header .user div img {
   border-left: 0;
 }
 
+/* line 1, ../../client/sass/modules/_login.scss */
+section.login {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/* line 8, ../../client/sass/modules/_login.scss */
+section.login .content {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  text-align: center;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section.login .content:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 14, ../../client/sass/modules/_login.scss */
+section.login .content a,
+section.login .content a:visited {
+  color: #FFFFFF;
+}
+/* line 21, ../../client/sass/modules/_login.scss */
+section.login .content form input {
+  height: 40px;
+  width: 90%;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 0.9em;
+  outline: none;
+  padding: 5px;
+}
+/* line 31, ../../client/sass/modules/_login.scss */
+section.login .content form input[type='submit'] {
+  background-color: #F5A623;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* line 1, ../../client/sass/modules/_signup.scss */
+section.signup {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/* line 8, ../../client/sass/modules/_signup.scss */
+section.signup .content {
+  color: #FFFFFF;
+  font-size: 1.2em;
+}
+/* line 14, ../../client/sass/modules/_signup.scss */
+section.signup .content form input {
+  height: 40px;
+  width: 90%;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 0.9em;
+  outline: none;
+  padding: 5px;
+}
+/* line 24, ../../client/sass/modules/_signup.scss */
+section.signup .content form input[type='submit'] {
+  background-color: #F5A623;
+  color: #FFFFFF;
+  height: 50px;
+  margin-top: 20px;
+}
+
+/* line 1, ../../client/sass/modules/_profile.scss */
+section.profile {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+/* line 8, ../../client/sass/modules/_profile.scss */
+section.profile h3 {
+  background-color: rgba(230, 230, 230, 0.5);
+  margin-bottom: 30px;
+  padding: 9px 0;
+}
+/* line 14, ../../client/sass/modules/_profile.scss */
+section.profile .content {
+  color: #FFFFFF;
+  font-size: 1.2em;
+}
+/* line 20, ../../client/sass/modules/_profile.scss */
+section.profile .content form input {
+  height: 40px;
+  width: 90%;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 0.9em;
+  outline: none;
+  padding: 5px;
+}
+/* line 30, ../../client/sass/modules/_profile.scss */
+section.profile .content form input[type='submit'] {
+  background-color: #F5A623;
+  color: #FFFFFF;
+  height: 50px;
+  margin-top: 20px;
+}
+
 /* line 1, ../../client/sass/modules/_allmovies.scss */
 section#allmovies {
   height: 100%;
@@ -434,8 +568,8 @@ section#allmovies .gallery div.slot a {
   top: 5px;
 }
 
-/* line 1, ../../client/sass/modules/_addmovie.scss */
-section#addmovie {
+/* line 1, ../../client/sass/modules/_mymovies.scss */
+section#mymovies {
   height: 100%;
   position: relative;
   max-width: 95%;
@@ -443,39 +577,40 @@ section#addmovie {
   margin-right: auto;
 }
 /* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-section#addmovie:after {
+section#mymovies:after {
   content: " ";
   display: block;
   clear: both;
 }
-/* line 6, ../../client/sass/modules/_addmovie.scss */
-section#addmovie input[type=text] {
-  outline: none;
-  background-color: #DEDEDE;
-  border-radius: 4px;
-  border: 0;
-  font-size: 1.1em;
-  padding: 3px;
+/* line 6, ../../client/sass/modules/_mymovies.scss */
+section#mymovies article {
+  text-align: center;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
-/* line 16, ../../client/sass/modules/_addmovie.scss */
-section#addmovie input[type=submit] {
-  font-size: 1.1em;
-  background-color: #F5A623;
-  border-radius: 4px;
-  color: #FFFFFF;
-  border: 0;
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mymovies article:after {
+  content: " ";
+  display: block;
+  clear: both;
 }
-/* line 24, ../../client/sass/modules/_addmovie.scss */
-section#addmovie input[type=button] {
-  font-size: 0.9em;
-  background-color: #0076FF;
-  border-radius: 4px;
-  color: #FFFFFF;
-  border: 0;
-  padding: 5px 7px;
+/* line 11, ../../client/sass/modules/_mymovies.scss */
+section#mymovies h2 {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 75%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  font-weight: normal;
+  line-height: 100%;
+  color: #a24a19;
+  padding: 10px 0;
 }
-/* line 33, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .notification {
+/* line 19, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .notification {
   position: absolute;
   z-index: 100;
   width: 80%;
@@ -483,18 +618,18 @@ section#addmovie .notification {
   border: 1px solid #DEDEDE;
   min-height: 15%;
   top: 35%;
-  background-color: rgba(249, 249, 249, 0.9);
+  background-color: rgba(249, 249, 249, 0.95);
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
   border-radius: 4px;
   padding: 7px;
   text-align: center;
 }
-/* line 47, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .notification p {
+/* line 33, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .notification p {
   display: block;
 }
-/* line 51, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .notification button {
+/* line 37, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .notification button {
   display: inline-block;
   outline: none;
   background-color: #0076FF;
@@ -505,21 +640,8 @@ section#addmovie .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 65, ../../client/sass/modules/_addmovie.scss */
-section#addmovie article {
-  padding-top: 15px;
-}
-/* line 22, ../../client/sass/_mixins.scss */
-section#addmovie .gallery:before, section#addmovie .gallery:after {
-  content: '';
-  display: table;
-}
-/* line 27, ../../client/sass/_mixins.scss */
-section#addmovie .gallery:after {
-  clear: both;
-}
-/* line 72, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .gallery div.slot {
+/* line 53, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -535,32 +657,37 @@ section#addmovie .gallery div.slot {
   position: relative;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section#addmovie .gallery div.slot:nth-child(3n + 1) {
+section#mymovies .gallery div.slot:nth-child(3n + 1) {
   margin-left: 0;
   margin-right: -100%;
   clear: both;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section#addmovie .gallery div.slot:nth-child(3n + 2) {
+section#mymovies .gallery div.slot:nth-child(3n + 2) {
   margin-left: 33.33333%;
   margin-right: -100%;
   clear: none;
 }
 /* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
-section#addmovie .gallery div.slot:nth-child(3n + 3) {
+section#mymovies .gallery div.slot:nth-child(3n + 3) {
   margin-left: 66.66667%;
   margin-right: -100%;
   clear: none;
 }
-/* line 79, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .gallery div.slot img.poster {
+/* line 60, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .gallery div.slot img.poster {
   z-index: -100;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
-/* line 83, ../../client/sass/modules/_addmovie.scss */
-section#addmovie .gallery div.slot a {
+/* line 65, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .gallery div.slot a {
   position: absolute;
   right: 5px;
-  top: 5px;
+  bottom: 12px;
+}
+/* line 70, ../../client/sass/modules/_mymovies.scss */
+section#mymovies .gallery div.slot a img {
+  opacity: 0.9;
 }
 
 /* line 1, ../../client/sass/modules/_mytrades.scss */
@@ -761,136 +888,131 @@ section#mytrades .notification button {
   border-radius: 4px;
 }
 
-/* line 1, ../../client/sass/modules/_login.scss */
-section.login {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-/* line 8, ../../client/sass/modules/_login.scss */
-section.login .content {
-  max-width: 90%;
+/* line 1, ../../client/sass/modules/_addmovie.scss */
+section#addmovie {
+  height: 100%;
+  position: relative;
+  max-width: 95%;
   margin-left: auto;
   margin-right: auto;
-  color: #FFFFFF;
-  font-size: 0.9em;
-  text-align: center;
 }
 /* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
-section.login .content:after {
+section#addmovie:after {
   content: " ";
   display: block;
   clear: both;
 }
-/* line 14, ../../client/sass/modules/_login.scss */
-section.login .content a,
-section.login .content a:visited {
-  color: #FFFFFF;
-}
-/* line 21, ../../client/sass/modules/_login.scss */
-section.login .content form input {
-  height: 40px;
-  width: 90%;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 0.9em;
+/* line 6, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=text] {
   outline: none;
-  padding: 5px;
+  background-color: #DEDEDE;
+  border-radius: 4px;
+  border: 0;
+  font-size: 1.1em;
+  padding: 3px;
 }
-/* line 31, ../../client/sass/modules/_login.scss */
-section.login .content form input[type='submit'] {
+/* line 16, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=submit] {
+  font-size: 1.1em;
   background-color: #F5A623;
+  border-radius: 4px;
   color: #FFFFFF;
-  font-weight: 500;
-  font-size: 1.2em;
-  margin-top: 20px;
-  cursor: pointer;
+  border: 0;
 }
-
-/* line 1, ../../client/sass/modules/_signup.scss */
-section.signup {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* line 24, ../../client/sass/modules/_addmovie.scss */
+section#addmovie input[type=button] {
+  font-size: 0.9em;
+  background-color: #0076FF;
+  border-radius: 4px;
+  color: #FFFFFF;
+  border: 0;
+  padding: 5px 7px;
+}
+/* line 33, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification {
+  position: absolute;
+  z-index: 100;
+  width: 80%;
+  left: 10%;
+  border: 1px solid #DEDEDE;
+  min-height: 15%;
+  top: 35%;
+  background-color: rgba(249, 249, 249, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+  border-radius: 4px;
+  padding: 7px;
   text-align: center;
 }
-/* line 8, ../../client/sass/modules/_signup.scss */
-section.signup .content {
-  color: #FFFFFF;
-  font-size: 1.2em;
+/* line 47, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification p {
+  display: block;
 }
-/* line 14, ../../client/sass/modules/_signup.scss */
-section.signup .content form input {
-  height: 40px;
-  width: 90%;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-size: 0.9em;
+/* line 51, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .notification button {
+  display: inline-block;
   outline: none;
-  padding: 5px;
-}
-/* line 24, ../../client/sass/modules/_signup.scss */
-section.signup .content form input[type='submit'] {
-  background-color: #F5A623;
+  background-color: #0076FF;
   color: #FFFFFF;
-  height: 50px;
-  margin-top: 20px;
-}
-
-/* line 1, ../../client/sass/modules/_profile.scss */
-section.profile {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("images/background-blur.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-/* line 8, ../../client/sass/modules/_profile.scss */
-section.profile h3 {
-  background-color: rgba(230, 230, 230, 0.5);
-  margin-bottom: 30px;
-  padding: 9px 0;
-}
-/* line 14, ../../client/sass/modules/_profile.scss */
-section.profile .content {
-  color: #FFFFFF;
-  font-size: 1.2em;
-}
-/* line 20, ../../client/sass/modules/_profile.scss */
-section.profile .content form input {
-  height: 40px;
-  width: 90%;
-  border-radius: 5px;
-  margin: 10px 0;
   font-size: 0.9em;
-  outline: none;
-  padding: 5px;
+  padding: 3px 20px;
+  margin-top: 5px;
+  border: 0;
+  border-radius: 4px;
 }
-/* line 30, ../../client/sass/modules/_profile.scss */
-section.profile .content form input[type='submit'] {
-  background-color: #F5A623;
-  color: #FFFFFF;
-  height: 50px;
-  margin-top: 20px;
+/* line 65, ../../client/sass/modules/_addmovie.scss */
+section#addmovie article {
+  padding-top: 15px;
+}
+/* line 22, ../../client/sass/_mixins.scss */
+section#addmovie .gallery:before, section#addmovie .gallery:after {
+  content: '';
+  display: table;
+}
+/* line 27, ../../client/sass/_mixins.scss */
+section#addmovie .gallery:after {
+  clear: both;
+}
+/* line 72, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot {
+  padding: 5px 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 3.33333%;
+  padding-right: 3.33333%;
+  display: inline;
+  position: relative;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section#addmovie .gallery div.slot:nth-child(3n + 1) {
+  margin-left: 0;
+  margin-right: -100%;
+  clear: both;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section#addmovie .gallery div.slot:nth-child(3n + 2) {
+  margin-left: 33.33333%;
+  margin-right: -100%;
+  clear: none;
+}
+/* line 66, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/language/susy/_gallery.scss */
+section#addmovie .gallery div.slot:nth-child(3n + 3) {
+  margin-left: 66.66667%;
+  margin-right: -100%;
+  clear: none;
+}
+/* line 79, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot img.poster {
+  z-index: -100;
+}
+/* line 83, ../../client/sass/modules/_addmovie.scss */
+section#addmovie .gallery div.slot a {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }

@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-// var userService = require('../services/going-service');
 
 var movieSchema = new Schema({
 	movie: {
