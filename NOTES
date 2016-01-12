@@ -1,7 +1,13 @@
-To Do
-- Profile save
-- Movie Added Dialogue: Ang/jQuery height where clicked
-- Allmovies: Scroll bis ganz unten
-- Allmovies: Shadow auf Bild, nicht div
-- Image sizes
+TO DO
+- Design for big screen
+- Check process problems: notification of accept or decline? Others?
+
+- Image sizes - stretch'em
 - Image prefix and suffix to .locals
+- Copy images to db for speed
+- User menu: use :focus to activate, thus clicking anywhere else will get rid of it
+
+OK - My Trades: Shadow auf Bild, nicht div
+OK - Movie Added Dialogue: Ang/jQuery height where clicked. Solution: Ouch, just needed position:fixed.
+OK - Profile save
+OK - Allmovies: Scroll bis ganz unten

@@ -4,12 +4,10 @@ section#mymovies {
   @include container(95%);
 
   article {
-    text-align: center;
     @include container(95%);
   } //article
 
   h2 {
-    @include span(9);
     font-weight: normal;
     line-height: 100%;
     color: darken($orange, 20);
@@ -17,7 +15,7 @@ section#mymovies {
   } //h1
 
   .notification {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     width: 80%;
     left: 10%;

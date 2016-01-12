@@ -26,10 +26,25 @@ $(document)
 
 		$(window)
 			.resize(function() {
-				container_height = $(window).height() - $('header').height();
+				container_height = $(window)
+					.height() - $('header')
+					.height();
 				$('.contheight')
 					.css('height', container_height);
 			}); //on resize
+
+		// $(window)
+		// 	.click(function(e) {
+		// 		var relativeX = (e.pageX - $(e.target)
+		// 				.offset()
+		// 				.left),
+		// 			relativeY = (e.pageY - $(e.target)
+		// 				.offset()
+		// 				.top);
+		//
+		// 		console.log('X: ' + parseInt(e.pageX) + '  Y: ' + parseInt(e.pageY));
+		// 		console.log(e);
+		// 	});
 
 	});
 

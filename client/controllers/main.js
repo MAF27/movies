@@ -49,7 +49,6 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 });
 
 movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, $location) {
-	console.log('This is CtrlAddMovie');
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -186,6 +185,10 @@ movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) 
 
 	$scope.borrowed = function(item) {
 		return (item.status === 'accepted' && item.loaner._id === $rootScope.userobj._id);
+	};
+
+	$scope.onloan = function(item) {
+		return (item.status === 'accepted' && item.owner._id === $rootScope.userobj._id);
 	};
 
 	$scope.accept = function(trade) {

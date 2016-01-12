@@ -83,7 +83,8 @@ body {
   background: #FFFFFF;
   color: #000000;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  overflow: scroll;
 }
 
 /* line 15, ../../client/sass/_layout.scss */
@@ -493,13 +494,13 @@ section#allmovies p.add {
 }
 /* line 24, ../../client/sass/modules/_allmovies.scss */
 section#allmovies .notification {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 80%;
   left: 10%;
-  border: 1px solid #DEDEDE;
   min-height: 15%;
   top: 35%;
+  border: 1px solid #DEDEDE;
   background-color: rgba(249, 249, 249, 0.95);
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
   border-radius: 4px;
@@ -584,7 +585,6 @@ section#mymovies:after {
 }
 /* line 6, ../../client/sass/modules/_mymovies.scss */
 section#mymovies article {
-  text-align: center;
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -595,23 +595,16 @@ section#mymovies article:after {
   display: block;
   clear: both;
 }
-/* line 11, ../../client/sass/modules/_mymovies.scss */
+/* line 10, ../../client/sass/modules/_mymovies.scss */
 section#mymovies h2 {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 75%;
-  float: left;
-  padding-left: 0.83333%;
-  padding-right: 0.83333%;
   font-weight: normal;
   line-height: 100%;
   color: #a24a19;
   padding: 10px 0;
 }
-/* line 19, ../../client/sass/modules/_mymovies.scss */
+/* line 17, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .notification {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 80%;
   left: 10%;
@@ -624,11 +617,11 @@ section#mymovies .notification {
   padding: 7px;
   text-align: center;
 }
-/* line 33, ../../client/sass/modules/_mymovies.scss */
+/* line 31, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .notification p {
   display: block;
 }
-/* line 37, ../../client/sass/modules/_mymovies.scss */
+/* line 35, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .notification button {
   display: inline-block;
   outline: none;
@@ -640,7 +633,7 @@ section#mymovies .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 53, ../../client/sass/modules/_mymovies.scss */
+/* line 51, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
@@ -674,18 +667,18 @@ section#mymovies .gallery div.slot:nth-child(3n + 3) {
   margin-right: -100%;
   clear: none;
 }
-/* line 60, ../../client/sass/modules/_mymovies.scss */
+/* line 58, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .gallery div.slot img.poster {
   z-index: -100;
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
-/* line 65, ../../client/sass/modules/_mymovies.scss */
+/* line 63, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .gallery div.slot a {
   position: absolute;
   right: 5px;
   bottom: 12px;
 }
-/* line 70, ../../client/sass/modules/_mymovies.scss */
+/* line 68, ../../client/sass/modules/_mymovies.scss */
 section#mymovies .gallery div.slot a img {
   opacity: 0.9;
 }
@@ -706,11 +699,16 @@ section#mytrades:after {
 }
 /* line 6, ../../client/sass/modules/_mytrades.scss */
 section#mytrades h1 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  text-align: left;
 }
-/* line 10, ../../client/sass/modules/_mytrades.scss */
+/* line 11, ../../client/sass/modules/_mytrades.scss */
+section#mytrades h1:first-child {
+  margin-top: 0;
+}
+/* line 16, ../../client/sass/modules/_mytrades.scss */
 section#mytrades article {
-  text-align: center;
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -721,7 +719,7 @@ section#mytrades article:after {
   display: block;
   clear: both;
 }
-/* line 15, ../../client/sass/modules/_mytrades.scss */
+/* line 20, ../../client/sass/modules/_mytrades.scss */
 section#mytrades button {
   display: block;
   margin-bottom: 5px;
@@ -732,19 +730,19 @@ section#mytrades button {
   border: 0;
   padding: 5px 7px;
 }
-/* line 26, ../../client/sass/modules/_mytrades.scss */
+/* line 31, ../../client/sass/modules/_mytrades.scss */
 section#mytrades button.accept {
   background-color: #4DB748;
 }
-/* line 30, ../../client/sass/modules/_mytrades.scss */
+/* line 35, ../../client/sass/modules/_mytrades.scss */
 section#mytrades button.decline {
   background-color: #FE3824;
 }
-/* line 34, ../../client/sass/modules/_mytrades.scss */
+/* line 39, ../../client/sass/modules/_mytrades.scss */
 section#mytrades button.return {
   background-color: #4DB748;
 }
-/* line 38, ../../client/sass/modules/_mytrades.scss */
+/* line 43, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.requests {
   max-width: 100%;
   margin-left: auto;
@@ -765,8 +763,8 @@ section#mytrades div.requests:after {
   display: block;
   clear: both;
 }
-/* line 43, ../../client/sass/modules/_mytrades.scss */
-section#mytrades img.poster {
+/* line 48, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.image {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -775,9 +773,13 @@ section#mytrades img.poster {
   padding-left: 0.83333%;
   padding-right: 0.83333%;
   margin: 3px 0;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
-/* line 49, ../../client/sass/modules/_mytrades.scss */
+/* line 53, ../../client/sass/modules/_mytrades.scss */
+section#mytrades img.poster {
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+  width: 100%;
+}
+/* line 58, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.notes {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -788,17 +790,17 @@ section#mytrades div.notes {
   padding-right: 0.83333%;
   text-align: left;
 }
-/* line 53, ../../client/sass/modules/_mytrades.scss */
+/* line 62, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.notes p {
   font-weight: 700;
   padding: 0;
   margin: 0;
 }
-/* line 58, ../../client/sass/modules/_mytrades.scss */
+/* line 67, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.notes p:last-of-type {
   margin-bottom: 25px;
 }
-/* line 63, ../../client/sass/modules/_mytrades.scss */
+/* line 72, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.notes button {
   display: block;
   margin-bottom: 5px;
@@ -809,7 +811,7 @@ section#mytrades div.notes button {
   border: 0;
   padding: 5px 7px;
 }
-/* line 75, ../../client/sass/modules/_mytrades.scss */
+/* line 84, ../../client/sass/modules/_mytrades.scss */
 section#mytrades h2 {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -823,7 +825,7 @@ section#mytrades h2 {
   color: #a24a19;
   padding: 10px 0;
 }
-/* line 84, ../../client/sass/modules/_mytrades.scss */
+/* line 92, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.borrowed {
   max-width: 100%;
   margin-left: auto;
@@ -844,7 +846,7 @@ section#mytrades div.borrowed:after {
   display: block;
   clear: both;
 }
-/* line 88, ../../client/sass/modules/_mytrades.scss */
+/* line 96, ../../client/sass/modules/_mytrades.scss */
 section#mytrades div.borrowed button {
   display: block;
   margin-bottom: 5px;
@@ -856,26 +858,42 @@ section#mytrades div.borrowed button {
   padding: 5px 7px;
   background-color: #0076FF;
 }
-/* line 101, ../../client/sass/modules/_mytrades.scss */
+/* line 109, ../../client/sass/modules/_mytrades.scss */
+section#mytrades div.onloan {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 22, ../../client/sass/_mixins.scss */
+section#mytrades div.onloan:before, section#mytrades div.onloan:after {
+  content: '';
+  display: table;
+}
+/* line 27, ../../client/sass/_mixins.scss */
+section#mytrades div.onloan:after {
+  clear: both;
+}
+/* line 12, ../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.2.9/sass/susy/output/support/_clearfix.scss */
+section#mytrades div.onloan:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 114, ../../client/sass/modules/_mytrades.scss */
 section#mytrades .notification {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 80%;
   left: 10%;
   border: 1px solid #DEDEDE;
-  min-height: 15%;
-  top: 35%;
+  top: 45vh;
   background-color: rgba(249, 249, 249, 0.95);
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
   border-radius: 4px;
   padding: 7px;
   text-align: center;
 }
-/* line 115, ../../client/sass/modules/_mytrades.scss */
-section#mytrades .notification p {
-  display: block;
-}
-/* line 119, ../../client/sass/modules/_mytrades.scss */
+/* line 132, ../../client/sass/modules/_mytrades.scss */
 section#mytrades .notification button {
   display: inline-block;
   outline: none;
@@ -908,10 +926,10 @@ section#addmovie input[type=text] {
   background-color: #DEDEDE;
   border-radius: 4px;
   border: 0;
-  font-size: 1.1em;
-  padding: 3px;
+  font-size: 1em;
+  padding: 5px;
 }
-/* line 16, ../../client/sass/modules/_addmovie.scss */
+/* line 15, ../../client/sass/modules/_addmovie.scss */
 section#addmovie input[type=submit] {
   font-size: 1.1em;
   background-color: #F5A623;
@@ -919,7 +937,7 @@ section#addmovie input[type=submit] {
   color: #FFFFFF;
   border: 0;
 }
-/* line 24, ../../client/sass/modules/_addmovie.scss */
+/* line 23, ../../client/sass/modules/_addmovie.scss */
 section#addmovie input[type=button] {
   font-size: 0.9em;
   background-color: #0076FF;
@@ -928,26 +946,26 @@ section#addmovie input[type=button] {
   border: 0;
   padding: 5px 7px;
 }
-/* line 33, ../../client/sass/modules/_addmovie.scss */
+/* line 32, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   width: 80%;
   left: 10%;
-  border: 1px solid #DEDEDE;
   min-height: 15%;
   top: 35%;
-  background-color: rgba(249, 249, 249, 0.9);
+  border: 1px solid #DEDEDE;
+  background-color: rgba(249, 249, 249, 0.95);
   box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
   border-radius: 4px;
   padding: 7px;
   text-align: center;
 }
-/* line 47, ../../client/sass/modules/_addmovie.scss */
+/* line 46, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification p {
   display: block;
 }
-/* line 51, ../../client/sass/modules/_addmovie.scss */
+/* line 50, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .notification button {
   display: inline-block;
   outline: none;
@@ -959,7 +977,7 @@ section#addmovie .notification button {
   border: 0;
   border-radius: 4px;
 }
-/* line 65, ../../client/sass/modules/_addmovie.scss */
+/* line 64, ../../client/sass/modules/_addmovie.scss */
 section#addmovie article {
   padding-top: 15px;
 }
@@ -972,7 +990,7 @@ section#addmovie .gallery:before, section#addmovie .gallery:after {
 section#addmovie .gallery:after {
   clear: both;
 }
-/* line 72, ../../client/sass/modules/_addmovie.scss */
+/* line 71, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot {
   padding: 5px 0;
   -moz-border-radius: 5px;
@@ -1006,9 +1024,10 @@ section#addmovie .gallery div.slot:nth-child(3n + 3) {
   margin-right: -100%;
   clear: none;
 }
-/* line 79, ../../client/sass/modules/_addmovie.scss */
+/* line 78, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot img.poster {
   z-index: -100;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
 }
 /* line 83, ../../client/sass/modules/_addmovie.scss */
 section#addmovie .gallery div.slot a {

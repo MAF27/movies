@@ -23,28 +23,50 @@
 <section id="mytrades">
 	<article>
 		<h1>Movie Trade Requests</h1>
-		<div class="requests" ng-repeat="trade in trades | filter: openRequests">
-			<img class="poster" ng-src="{{iprefix}}{{trade.movie.poster_path}}{{isuffix}}" alt="{{trade.movie.title}}" title="{{trade.movie.title}}" />
+		<p ng-hide="filteredRequests.length">None.</p>
+		<div class="requests" ng-repeat="trade in trades | filter: openRequests as filteredRequests">
+		<!-- <div class="requests" ng-repeat="trade in filteredTrades = (trades | filter: openRequests)"> -->
+			<div class="image">
+				<img class="poster" ng-src="{{iprefix}}{{trade.movie.poster_path}}{{isuffix}}" alt="{{trade.movie.title}}" title="{{trade.movie.title}}" />
+			</div>
 			<div class="notes">
 				<p>From: {{trade.loaner.firstName}}</p>
-				<p>On: <span ng-bind="format(trade.created);"></span></p>
+				<p>On:
+					<span ng-bind="format(trade.created);"></span>
+				</p>
 				<button class="accept" ng-click="accept(trade);">Accept</button>
 				<button class="decline" ng-click="decline(trade);">Decline</button>
 			</div>
 		</div>
 
 		<h1>Movies I borrowed</h1>
-		<div class="borrowed" ng-repeat="trade in trades | filter: borrowed">
-			<img class="poster" ng-src="{{iprefix}}{{trade.movie.poster_path}}{{isuffix}}" alt="{{trade.movie.title}}" title="{{trade.movie.title}}" />
+		<p ng-hide="filteredBorrows.length">None.</p>
+		<div class="borrowed" ng-repeat="trade in trades | filter: borrowed as filteredBorrows">
+			<div class="image">
+				<img class="poster" ng-src="{{iprefix}}{{trade.movie.poster_path}}{{isuffix}}" alt="{{trade.movie.title}}" title="{{trade.movie.title}}" />
+			</div>
 			<div class="notes">
 				<p>From: {{trade.owner.firstName}}</p>
-				<p>On: <span ng-bind="format(trade.created);"></span></p>
+				<p>On:
+					<span ng-bind="format(trade.created);"></span>
+				</p>
 				<button ng-click="return(trade);">Return</button>
 			</div>
 		</div>
 
-
 		<h1>Movies I lent to others</h1>
+		<p ng-hide="filteredLoans.length">None.</p>
+		<div class="onloan" ng-repeat="trade in trades | filter: onloan as filteredLoans">
+			<div class="image">
+				<img class="poster" ng-src="{{iprefix}}{{trade.movie.poster_path}}{{isuffix}}" alt="{{trade.movie.title}}" title="{{trade.movie.title}}" />
+			</div>
+			<div class="notes">
+				<p>To: {{trade.loaner.firstName}}</p>
+				<p>On:
+					<span ng-bind="format(trade.created);"></span>
+				</p>
+			</div>
+		</div>
 
 	</article>
 
