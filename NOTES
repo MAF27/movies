@@ -2,6 +2,11 @@ TO DO
 - Design for big screen
 - Check process problems: notification of accept or decline? Others?
 
+Deploy Issues
+- Images not found
+- node-modules in browser
+- client folder in browser
+
 - Image sizes - stretch'em
 - Image prefix and suffix to .locals
 - Copy images to db for speed

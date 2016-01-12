@@ -50,7 +50,9 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/', users);
 app.use('/api', api);
-app.use(express.static(__dirname + '/builds/development'));
+// app.use(express.static('./builds'));
+app.use(express.static('./builds/development'));
+// app.use(express.static(__dirname + '/builds/development'));
 
 // CONFIGURE PORT FOR DEV AND PROD, START SERVER
 app.set('port', process.env.PORT || 3000);

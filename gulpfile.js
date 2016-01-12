@@ -52,7 +52,7 @@ var bundler = browserify({
 	cache: {},
 	packageCache: {},
 	entries: ['./client/app.js'],
-	debug: true
+	debug: false
 });
 
 var handleErrors = function(e) {
