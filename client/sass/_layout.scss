@@ -1,48 +1,121 @@
 html {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
+	background-color: lightgrey;
 }
 
 body {
-  font: $mainFont;
-  background: $backgroundColor;
-  color: $typeDefault;
-  width: 100%;
-  min-height: 100%;
-  overflow: scroll;
+	font: $mainFont;
+	background: $backgroundColor;
+	color: $typeDefault;
+	width: 100%;
+	max-width: 1024px; // iPad Landscape
+	margin: 0 auto;
+	min-height: 100%;
+	overflow: scroll;
+	font-weight: 400;
 }
 
 #{headings()} {
- font: $headFont;
- color: $headColor;
- font-weight: $bold;
+	font: $headFont;
+	color: $headColor;
+	font-weight: $bold;
 }
 
 strong {
-  font-weight: $bold;
+	font-weight: $bold;
 }
 
-p {
-  font-weight: $thin;
-  padding-bottom: 10px;
+input[type=text] {
+	outline: none;
+	background-color: $lightgrey;
+	border-radius: 4px;
+	border: 0;
+	font-size: 1em;
+	padding: 5px;
+}
+
+input[type=submit] {
+	font-size: 1.1em;
+	background-color: $gold;
+	border-radius: 4px;
+	color: $light;
+	border: 0;
+}
+
+input[type=button] {
+	font-size: 0.9em;
+	background-color: $iosblue;
+	border-radius: 4px;
+	color: $light;
+	border: 0;
+	padding: 5px 7px;
+}
+
+.notification {
+	position: fixed;
+	z-index: 100;
+	width: 80%;
+	left: 10%;
+	top: 35%;
+	border: 1px solid $lightgrey;
+	background-color: rgba(249, 249, 249, 0.95);
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+	border-radius: 4px;
+	padding: 7px;
+	text-align: center;
+
+	@include breakpoint($medium) {
+		width: 50%;
+		left: 25%;
+	}
+//breakpoint
+
+	@include breakpoint($wide) {
+		width: 30%;
+		left: 35%;
+	}
+//breakpoint
+
+	button {
+		margin-top: 15px;
+	}
+}
+
+button {
+	display: inline-block;
+	outline: none;
+	background-color: $iosblue;
+	color: $light;
+	font-size: 0.9em;
+	padding: 3px 20px;
+	margin-top: 5px;
+	border: 0;
+	border-radius: 4px;
+}
+
+article {
+	padding-top: 15px;
 }
 
 #hbs_content {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
+	max-width: 1024px; // iPad Landscape
 }
 
 #angwrapper {
-  height: 100%;
+	height: 100%;
 }
 
 #angcontent {
-  height: 100%;
-  @include container(100%);
-  padding-top: 7px;
-  padding-bottom: 50px;
+	height: 100%;
+	@include container(100%);
+	padding-top: 7px;
+	padding-bottom: 50px;
+	max-width: 1024px; // iPad Landscape
 }
 
 .hide {
-  display: none;
+	display: none;
 }

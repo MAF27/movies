@@ -26,20 +26,20 @@ var jshint = require('gulp-jshint');
 var mochaPhantomjs = require('gulp-mocha-phantomjs');
 
 var env,
-    jsSources,
-    sassSources,
-    htmlSources,
-    outputDir,
-    sassStyle;
+	jsSources,
+	sassSources,
+	htmlSources,
+	outputDir,
+	sassStyle;
 
 env = 'development';
 
-if (env==='development') {
-  outputDir = 'builds/development/';
-  sassStyle = 'expanded';
+if (env === 'development') {
+	outputDir = 'builds/development/';
+	sassStyle = 'expanded';
 } else {
-  outputDir = 'builds/production/';
-  sassStyle = 'compressed';
+	outputDir = 'builds/production/';
+	sassStyle = 'compressed';
 }
 
 jsSources = ['client/**/*.js'];
@@ -100,17 +100,18 @@ gulp.task('test', ['lint-test', 'browserify-test'], function() {
 
 gulp.task('styles', function() {
 	return gulp.src(sassSources)
-    .pipe(compass({
-      sass: 'client/sass',
-      css: outputDir,
-      image: outputDir + 'images',
-      style: sassStyle,
-      require: ['susy', 'breakpoint']
-    })
-    .on('error', gutil.log))
-    // .pipe(gulp.dest( outputDir + 'css'))
-    .pipe(prefix({
-			cascade: true
+		.pipe(compass({
+				sass: 'client/sass',
+				css: outputDir,
+				image: outputDir + 'images',
+				style: sassStyle,
+				require: ['susy', 'breakpoint']
+			})
+			.on('error', gutil.log))
+		// .pipe(gulp.dest( outputDir + 'css'))
+		.pipe(prefix({
+			browsers: ['last 2 versions'],
+			cascade: false
 		}));
 });
 
@@ -126,19 +127,19 @@ gulp.task('uglify-js', ['browserify-client'], function() {
 		.pipe(rename('bundle.min.js'));
 });
 
-gulp.task('reload', function(){
+gulp.task('reload', function() {
 	return livereload();
 });
 
 gulp.task('html', function() {
-  gulp.src('client/**/*.html')
-    .pipe(gulpif(env === 'production', minifyHTML()))
-    .pipe(gulp.dest(outputDir));
+	gulp.src('client/**/*.html')
+		.pipe(gulpif(env === 'production', minifyHTML()))
+		.pipe(gulp.dest(outputDir));
 });
 
 gulp.task('images', function() {
-  gulp.src('client/images/*.*')
-    .pipe(gulp.dest(outputDir + 'images'));
+	gulp.src('client/images/*.*')
+		.pipe(gulp.dest(outputDir + 'images'));
 });
 
 gulp.task('build', ['uglify-js', 'minify-css', 'html', 'images']);

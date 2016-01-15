@@ -13,7 +13,7 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 	$scope.addtrade = function(movie) {
 		// If own movie
 		if (movie.owner._id === $rootScope.userobj._id) {
-			$scope.msg = 'You own the movie ' + movie.movie.title + ' yourself ...';
+			$scope.msg = 'You own the title ' + movie.movie.title + ' yourself ...';
 		} else {
 			var body = {
 				loaner: {
@@ -91,7 +91,6 @@ movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, 
 });
 
 movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) {
-	$scope.msg = 'This is CtrlMyMovies';
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -149,11 +148,11 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 
 	$scope.movieDetails = function(item) {
 		if (item.onloan) {
-			$scope.msg = 'The title "' + item.title + '" is on loan to ' + item.loaner;
+			$scope.msg = item.loaner + ' borrowed "' + item.title + '" from you.';
 		}
 
 		if (item.borrowed) {
-			$scope.msg = 'The title "' + item.title + '" was lent to you by ' + item.owner;
+			$scope.msg = item.owner + ' lent you the title "' + item.title + '".';
 		}
 	};
 

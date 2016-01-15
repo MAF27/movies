@@ -3,75 +3,37 @@ section#allmovies {
   position: relative;
   @include container(95%);
 
-  article {
-    text-align: center;
-    @include container(95%);
-  } //article
-
   h2 {
     @include span(9);
     font-weight: normal;
     line-height: 100%;
     color: darken($orange, 20);
     padding: 10px 0;
-  } //h1
+  } //h2
 
   p.add {
-    @include span(last 2);
-    text-align: center;
-  }
+    @include span(last 3);
+    text-align: right;
+    vertical-align: center;
 
-  .notification {
-    position: fixed;
-    z-index: 100;
-    width: 80%;
-		left: 10%;
-		min-height: 15%;
-		top: 35%;
-    border: 1px solid $lightgrey;
-    background-color: rgba(249, 249, 249, 0.95);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-    border-radius: 4px;
-    padding: 7px;
-    text-align: center;
+    a {
+      text-decoration: none;
+      color: $typeDefault;
 
-    p {
-      display: block;
-    }
+      span {
+        display: none;
+        margin-bottom: 15px;
 
-    button {
-      display: inline-block;
-      outline: none;
-      background-color: $iosblue;
-      color: $light;
-      font-size: 0.9em;
-      padding: 3px 20px;
-      margin-top: 5px;
-      border: 0;
-      border-radius: 4px;
+        // @include breakpoint($small) {
+        //     display: inherit;
+        // }
+      }
 
     }
   }
 
-  .gallery {
+  img.poster {
+    width: 100%;
+  }
 
-    div.slot {
-      padding: 5px 0;
-      @include border-radius(5px);
-      @include gallery(1 of 3);
-      display: inline;
-      position: relative;
-
-      img.poster {
-        z-index: -100;
-        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-      }
-
-      a {
-        position: absolute;
-        right: 5px;
-        top: 5px;
-      }
-    } // slot
-  } //gallery
-} //welcome
+}

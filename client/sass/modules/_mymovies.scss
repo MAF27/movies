@@ -1,74 +1,23 @@
 section#mymovies {
-  height: 100%;
-  position: relative;
-  @include container(95%);
+	min-height: 100%;
+	@include container(95%);
 
-  article {
-    @include container(95%);
-  } //article
+	.gallery {
+		div.slot {
+			position: relative;
 
-  h2 {
-    font-weight: normal;
-    line-height: 100%;
-    color: darken($orange, 20);
-    padding: 10px 0;
-  } //h1
+			a {
+				position: absolute;
+				right: 12%;
+				top: 79%;
 
-  .notification {
-    position: fixed;
-    z-index: 100;
-    width: 80%;
-    left: 10%;
-    border: 1px solid $lightgrey;
-    min-height: 15%;
-    top: 35%;
-    background-color: rgba(249, 249, 249, 0.95);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-    border-radius: 4px;
-    padding: 7px;
-    text-align: center;
-
-    p {
-      display: block;
-    }
-
-    button {
-      display: inline-block;
-      outline: none;
-      background-color: $iosblue;
-      color: $light;
-      font-size: 0.9em;
-      padding: 3px 20px;
-      margin-top: 5px;
-      border: 0;
-      border-radius: 4px;
-
-    }
-  }
-
-  .gallery {
-
-    div.slot {
-      padding: 5px 0;
-      @include border-radius(5px);
-      @include gallery(1 of 3);
-      display: inline;
-      position: relative;
-
-      img.poster {
-        z-index: -100;
-        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-      }
-
-      a {
-        position: absolute;
-        right: 5px;
-        bottom: 12px;
-
-        img {
-          opacity: 0.9;
-        }
-      }
-    } // slot
-  } //gallery
-} //welcome
+				img {
+					opacity: 0.9;
+				}
+			}
+		}
+		img.poster {
+			width: 100%;
+		}
+	}
+}

@@ -1,17 +1,21 @@
 TO DO
-- Design for big screen
+- Data structure change: loans direkt auf movie object, kein separates trade object
+	-> Abfangen Anfrage bereits ausgeliehener oder angefragter Movies
+- my trades: Ausstehende Anfragen
+- my trades: badge?
+- Design for big screen (limit iPad landscape): 95% width in gallery, height raus
 - Check process problems: notification of accept or decline? Others?
-
-Deploy Issues
-- Images not found
-- node-modules in browser
-- client folder in browser
+- Autoprefixer not working - column-count
 
 - Image sizes - stretch'em
 - Image prefix and suffix to .locals
-- Copy images to db for speed
 - User menu: use :focus to activate, thus clicking anywhere else will get rid of it
 
+Deploy Issues
+n/a - Copy images to db for speed
+OK - node-modules in browser - browserify debug:true
+OK - client folder in browser - browserify debug:true
+OK - Images not found - .gitignore ...
 OK - My Trades: Shadow auf Bild, nicht div
 OK - Movie Added Dialogue: Ang/jQuery height where clicked. Solution: Ouch, just needed position:fixed.
 OK - Profile save

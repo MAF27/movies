@@ -21,9 +21,10 @@
 </nav>
 
 <section id="allmovies">
-	<h2>Click or tap to trade</h2>
+	<h2>Tap a movie to trade</h2>
 	<p class="add">
 		<a href="/#/addmovie">
+			<span>Add movie</span>
 			<img ng-src="images/ios-plus-blue.svg" width="35px" height="35px">
 		</a>
 	</p>
@@ -34,14 +35,15 @@
 	</div>
 
 	<div class="notification" ng-show="trade">
-		<p>A request to loan "{{trade.movie.title}}" was sent to {{trade.owner.firstName}}. You'll hear back shortly.</p>
+		<p>A request to loan "{{trade.movie.title}}" was sent to
+			{{trade.owner.firstName}}. You'll hear back shortly.</p>
 		<button ng-click="hide_trade();">OK</button>
 	</div>
 
 	<article>
 		<div class="gallery">
 			<div class="slot" ng-repeat="movie in movies | orderBy:'movie.title'" ng-click="addtrade(movie);">
-				<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}" height="150px" />
+				<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}"/>
 			</div>
 		</div>
 	</article>

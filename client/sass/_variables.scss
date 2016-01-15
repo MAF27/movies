@@ -4,7 +4,8 @@ $susy: ( debug: ( image: hide, color: blue, output: overlay, toggle: top right )
 $narrow: 400px;
 $small: 650px;
 $medium: 960px;
-$wide: 1200px;
+$wide: 1024px;
+
 // Add Color Palette
 $blue: #063642;
 $iosblue: #0076FF;
@@ -25,6 +26,7 @@ $navForeground: $blue;
 $navHover: $yellow;
 $navBrandBg: $red;
 $headersubbg: $dark;
+
 //Font variables
 $fontfamily: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $thin: 200;

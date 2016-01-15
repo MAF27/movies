@@ -2,6 +2,8 @@ header {
 	@include container;
 	background-color: $purple;
 	z-index: 100;
+	max-width: 1024px; // iPad Landscape
+	position: relative;
 
 	.logo {
 		padding: 15px 0;
@@ -13,6 +15,7 @@ header {
 			font-size: 3em;
 			font-weight: $heavy;
 			line-height: 0.6em;
+			width: 100px; // make it break to two lines
 			@include text-shadow($dark 0 0 20px);
 		}
 // h1
@@ -21,14 +24,14 @@ header {
 
 	.user {
 		padding-top: 20px;
-		@include span(last 2);
-		text-align: center;
+		padding-right: 15px;
+		float: right;
 		color: $light;
 
 		ul {
 			position: absolute;
-			top: 65px;
-			right: 15px;
+			top: 82px;
+			right: 20px;
 			z-index: 120;
 
 			li {

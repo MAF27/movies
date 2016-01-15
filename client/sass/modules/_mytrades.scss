@@ -13,31 +13,39 @@ section#mytrades {
 		}
 	}
 
-	article {
-		@include container(95%);
+	div.column {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+
+		@include breakpoint($small) {
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+	  } //breakpoint
+
+	  @include breakpoint($wide) {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+	  } //breakpoint
+
 	}
 
 	button {
 		display: block;
-		margin-bottom: 5px;
-		min-width: 75px;
-		font-size: 0.9em;
-		border-radius: 4px;
-		color: $light;
-		border: 0;
-		padding: 5px 7px;
-	}
 
-	button.accept {
-		background-color: #4DB748;
-	}
+		.accept {
+			background-color: #4DB748;
+		}
 
-	button.decline {
-		background-color: #FE3824;
-	}
+		.decline {
+			background-color: #FE3824;
+		}
 
-	button.return {
-		background-color: #4DB748;
+		.return {
+			background-color: #4DB748;
+		}
 	}
 
 	div.requests {
@@ -46,7 +54,7 @@ section#mytrades {
 	}
 
 	div.image {
-		@include span(4);
+		@include span(3);
 		margin: 3px 0;
 	}
 
@@ -56,7 +64,7 @@ section#mytrades {
 	}
 
 	div.notes {
-		@include span(last 7);
+		@include span(last 8);
 		text-align: left;
 
 		p {
@@ -68,17 +76,6 @@ section#mytrades {
 				margin-bottom: 25px;
 			}
 		}
-
-		button {
-			display: block;
-			margin-bottom: 5px;
-			min-width: 75px;
-			font-size: 0.9em;
-			border-radius: 4px;
-			color: $light;
-			border: 0;
-			padding: 5px 7px;
-		}
 	}
 
 	h2 {
@@ -88,57 +85,14 @@ section#mytrades {
 		color: darken($orange, 20);
 		padding: 10px 0;
 	}
-	//h1
+
 	div.borrowed {
 		@include clearfix;
 		@include container;
-
-		button {
-			display: block;
-			margin-bottom: 5px;
-			min-width: 75px;
-			font-size: 0.9em;
-			border-radius: 4px;
-			color: $light;
-			border: 0;
-			padding: 5px 7px;
-			background-color: $iosblue;
-		}
 	}
 
 	div.onloan {
 		@include clearfix;
 		@include container;
-	}
-
-	.notification {
-		position: fixed;
-		z-index: 100;
-		width: 80%;
-		left: 10%;
-		border: 1px solid $lightgrey;
-		top: 45vh;
-		// top: 45%;
-		background-color: rgba(249, 249, 249, 0.95);
-		box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-		border-radius: 4px;
-		padding: 7px;
-		text-align: center;
-
-		// p {
-		// 	display: block;
-		// }
-		//
-		button {
-			display: inline-block;
-			outline: none;
-			background-color: $iosblue;
-			color: $light;
-			font-size: 0.9em;
-			padding: 3px 20px;
-			margin-top: 5px;
-			border: 0;
-			border-radius: 4px;
-		}
 	}
 }

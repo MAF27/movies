@@ -1,0 +1,37 @@
+.gallery {
+	@include clearfix;
+
+	div.slot {
+		padding: 5px 0;
+		@include border-radius(5px);
+		@include gallery(1 of 3);
+		display: inline;
+		position: relative;
+		cursor: pointer;
+
+		@include breakpoint($small) {
+	    @include gallery(1 of 4);
+	  } //breakpoint
+
+		@include breakpoint($medium) {
+	    @include gallery(1 of 5);
+	  } //breakpoint
+
+		@include breakpoint($wide) {
+	    @include gallery(1 of 6);
+	  } //breakpoint
+
+		img.poster {
+			z-index: -100;
+			box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
+		}
+
+		a {
+			position: absolute;
+			right: 5px;
+			top: 5px;
+		}
+	}
+//img
+}
+//gallery
