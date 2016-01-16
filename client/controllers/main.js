@@ -5,41 +5,55 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
-	$http.get('/api/movie')
-		.then(function(result) {
-			$scope.movies = result.data;
-		});
+	if (!$scope.movies) {
+		$http.get('/api/movie')
+			.then(function(result) {
+				$scope.movies = result.data;
+			});
+	}
 
-	$scope.addtrade = function(movie) {
+	$scope.addRequest = function(movie, idx) {
 		// If own movie
 		if (movie.owner._id === $rootScope.userobj._id) {
 			$scope.msg = 'You own the title ' + movie.movie.title + ' yourself ...';
+		} else if (movie.status === 'on_loan') {
+			if (movie.loaner._id === $rootScope.userobj._id) {
+				$scope.msg = 'You\'ve already borrowed the movie "' + movie.movie.title + '".';
+			} else {
+				$scope.msg = 'The movie "' + movie.movie.title + '" is on loan to ' + movie.loaner.firstName + '. Please check back later.';
+			}
+		} else if (movie.status === 'request') {
+			if (movie.loaner._id === $rootScope.userobj._id) {
+				$scope.msg = 'You\'ve already requested the movie "' + movie.movie.title + '".';
+			} else {
+				$scope.msg = 'The movie "' + movie.movie.title + '" has already been requested by ' + movie.loaner.firstName + '. Please check back later.';
+			}
 		} else {
+			// Save loan request
 			var body = {
 				loaner: {
 					_id: $rootScope.userobj._id,
-					firstName: $rootScope.userobj.firstName
-				},
-				owner: {
-					_id: movie.owner._id,
-					firstName: movie.owner.firstName
+					firstName: $rootScope.userobj.firstName,
+					lastName: $rootScope.userobj.lastName
 				},
 				movie: {
-					_id: movie.movie.id,
-					title: movie.movie.title,
-					poster_path: movie.movie.poster_path
+					id: movie.movie.id
 				},
-				status: 'open'
+				status: 'request',
+				created: new Date()
 			};
-			return $http.post('/api/trade', body)
+			return $http.put('/api/movie', body)
 				.then(function(result) {
-					$scope.trade = body;
+					console.log('* Result of addtrade: ', result);
+					$scope.msg = 'A request to loan "' + result.data.movie.title + '" was sent to ' + result.data.owner.firstName + '. You\'ll hear back shortly.';
+					// Check updated movie back into scope
+					for (var i = 0; i < $scope.movies.length; i++) {
+						if ($scope.movies[i].movie.id === result.data.movie.id) {
+							$scope.movies[i] = result.data;
+						}
+					}
 				});
 		}
-	};
-
-	$scope.hide_trade = function() {
-		$scope.trade = '';
 	};
 
 	$scope.hide_msg = function() {
@@ -94,56 +108,58 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
-	var fillMyMovies = function() {
-		$scope.myMovies = [];
-		var i, status, j, loaner;
-
-		$http.get('/api/trade')
-			.then(function(result) {
-
-				for (i = 0; i < $scope.movies.length; i++) {
-					if ($scope.movies[i].owner._id === $rootScope.userobj._id) {
-						// Check whether this movie is on loan
-						status = 'mine'; loaner = '';
-						for (j = 0; j < result.data.length; j++) {
-							if (result.data[j].movie._id === $scope.movies[i].movie.id && result.data[j]
-								.status === 'accepted') {
-								status = 'onloan';
-								loaner = result.data[j].loaner.firstName;
-							}
-						}
-						$scope.myMovies.push({
-							title: $scope.movies[i].movie.title,
-							poster_path: $scope.movies[i].movie.poster_path,
-							mine: status === 'mine',
-							onloan: status === 'onloan',
-							loaner: loaner
-						});
-					}
-				}
-
-				for (i = 0; i < result.data.length; i++) {
-					if (result.data[i].status === 'accepted' && result.data[i].loaner._id === $rootScope.userobj._id) {
-						$scope.myMovies.push({
-							title: result.data[i].movie.title,
-							poster_path: result.data[i].movie.poster_path,
-							borrowed: true,
-							owner: result.data[i].owner.firstName
-						});
-					}
-				}
-			});
-	};
+	// var fillMyMovies = function() {
+	// 	$scope.myMovies = [];
+	// 	var i, status, j, loaner;
+	//
+	// 	$http.get('/api/movie')
+	// 		.then(function(result) {
+	//
+	// 			$scope.movies = result.data;
+	//
+	// 			// for (i = 0; i < $scope.movies.length; i++) {
+	// 			// 	if ($scope.movies[i].status === 'on_loan') {
+	// 			// 		// Check whether this movie is on loan
+	// 			// 		status = 'mine'; loaner = '';
+	// 			// 		for (j = 0; j < result.data.length; j++) {
+	// 			// 			if (result.data[j].movie._id === $scope.movies[i].movie.id && result.data[j]
+	// 			// 				.status === 'accepted') {
+	// 			// 				status = 'onloan';
+	// 			// 				loaner = result.data[j].loaner.firstName;
+	// 			// 			}
+	// 			// 		}
+	// 			// 		$scope.myMovies.push({
+	// 			// 			title: $scope.movies[i].movie.title,
+	// 			// 			poster_path: $scope.movies[i].movie.poster_path,
+	// 			// 			mine: status === 'mine',
+	// 			// 			onloan: status === 'onloan',
+	// 			// 			loaner: loaner
+	// 			// 		});
+	// 			// 	}
+	// 			// }
+	// 			//
+	// 			// for (i = 0; i < result.data.length; i++) {
+	// 			// 	if (result.data[i].status === 'accepted' && result.data[i].loaner._id === $rootScope.userobj._id) {
+	// 			// 		$scope.myMovies.push({
+	// 			// 			title: result.data[i].movie.title,
+	// 			// 			poster_path: result.data[i].movie.poster_path,
+	// 			// 			borrowed: true,
+	// 			// 			owner: result.data[i].owner.firstName
+	// 			// 		});
+	// 			// 	}
+	// 			// }
+	// 		});
+	// };
 
 	$scope.msg = '';
 	if (!$scope.movies) {
 		$http.get('/api/movie')
 			.then(function(result) {
 				$scope.movies = result.data;
-				fillMyMovies();
+				// fillMyMovies();
 			});
 	} else {
-		fillMyMovies();
+		// fillMyMovies();
 	}
 
 	$scope.movieDetails = function(item) {
@@ -160,16 +176,34 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 		$scope.msg = '';
 	};
 
+	$scope.mineOrLoan = function(item) {
+		// return (item.owner._id === $rootScope.userobj._id || item.loaner._id === $rootScope.userobj._id);
+		if (item.owner._id === $rootScope.userobj._id) {
+			return true;
+		}
+
+		if (item.loaner) {
+			if (item.owner._id === $rootScope.userobj._id) {
+				return true;
+			}
+		}
+		return false;
+	};
+
+	$scope.borrowed = function(item) {
+		return (item.status === 'on_loan' && item.loaner._id === $rootScope.userobj._id);
+	};
+
+	$scope.onloan = function(item) {
+		console.log('* onloan: ', item);
+		return (item.status === 'on_loan' && item.owner._id === $rootScope.userobj._id);
+	};
+
 });
 
 movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) {
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
-
-	$http.get('/api/trade')
-		.then(function(result) {
-			$scope.trades = result.data;
-		});
 
 	$scope.format = function(date) {
 		var d = new Date(date);
@@ -179,32 +213,42 @@ movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) 
 	};
 
 	$scope.openRequests = function(item) {
-		return (item.status === 'open' && item.owner._id === $rootScope.userobj._id);
+		return (item.status === 'request' && item.owner._id === $rootScope.userobj._id);
 	};
 
 	$scope.borrowed = function(item) {
-		return (item.status === 'accepted' && item.loaner._id === $rootScope.userobj._id);
+		return (item.status === 'on_loan' && item.loaner._id === $rootScope.userobj._id);
 	};
 
 	$scope.onloan = function(item) {
-		return (item.status === 'accepted' && item.owner._id === $rootScope.userobj._id);
+		return (item.status === 'on_loan' && item.owner._id === $rootScope.userobj._id);
 	};
 
-	$scope.accept = function(trade) {
-		trade.status = 'accepted';
-		$http.put('/api/trade', trade)
+	$scope.accept = function(movie) {
+		movie.status = 'on_loan';
+		movie.created = new Date();
+		$http.put('/api/movie', movie)
 			.then(function(result) {});
 	};
 
-	$scope.decline = function(trade) {
-		trade.status = 'declined';
-		$http.put('/api/trade', trade)
+	$scope.decline = function(movie) {
+		movie.status = 'with_owner';
+		$http.put('/api/movie', movie)
 			.then(function(result) {});
 	};
 
-	$scope.return = function(trade) {
-		trade.status = 'returned';
-		$http.put('/api/trade', trade)
+	$scope.return = function(movie) {
+		movie.status = 'with_owner';
+		movie.created = new Date();
+		$http.put('/api/movie', movie)
 			.then(function(result) {});
 	};
+
+	if (!$scope.movies) {
+		$http.get('/api/movie')
+			.then(function(result) {
+				$scope.movies = result.data;
+			});
+	}
+
 });

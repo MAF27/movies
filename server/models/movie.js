@@ -15,11 +15,16 @@ var movieSchema = new Schema({
 		lastName: String,
 		username: String
 	},
+	loaner: {
+		_id: { type: String, 'default': null },
+		firstName: { type: String, 'default': null },
+		lastName: { type: String, 'default': null }
+	},
 	created: {
 		type: Date,
 		'default': Date.now
 	},
-	status: String
+	status: { type: String, 'default': 'with_owner' }
 });
 
 var Movie = mongoose.model('Movie', movieSchema);

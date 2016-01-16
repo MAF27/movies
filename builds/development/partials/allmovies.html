@@ -34,15 +34,9 @@
 		<button ng-click="hide_msg();">OK</button>
 	</div>
 
-	<div class="notification" ng-show="trade">
-		<p>A request to loan "{{trade.movie.title}}" was sent to
-			{{trade.owner.firstName}}. You'll hear back shortly.</p>
-		<button ng-click="hide_trade();">OK</button>
-	</div>
-
 	<article>
 		<div class="gallery">
-			<div class="slot" ng-repeat="movie in movies | orderBy:'movie.title'" ng-click="addtrade(movie);">
+			<div class="slot" ng-repeat="movie in movies | orderBy:'movie.title'" ng-click="addRequest(movie, $index);">
 				<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}"/>
 			</div>
 		</div>

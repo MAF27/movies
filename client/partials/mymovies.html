@@ -22,7 +22,7 @@
 
 <section id="mymovies">
 	<h2>My Movies</h2>
-	<p ng-hide="myMovies.length">None at this time.</p>
+	<p ng-hide="filteredMovies.length">None at this time.</p>
 
 	<div class="notification" ng-show="msg">
 		<p>{{msg}}</p>
@@ -31,12 +31,12 @@
 
 	<article>
 		<div class="gallery">
-			<div class="slot" ng-repeat="movie in myMovies | orderBy:'title'" ng-click="">
+			<div class="slot" ng-repeat="movie in movies | orderBy:'title' | filter:mineOrLoan as filteredMovies">
 				<a ng-click="movieDetails(movie)">
-					<img ng-show="movie.borrowed" ng-src="images/borrowed.png" width="30px" height="30px">
-					<img ng-show="movie.onloan" ng-src="images/onloan.png" width="30px" height="30px">
+					<img ng-show="borrowed(movie)" ng-src="images/borrowed.png" width="30px" height="30px">
+					<img ng-show="onloan(movie)" ng-src="images/onloan.png" width="30px" height="30px">
 				</a>
-				<img class="poster" ng-src="{{iprefix}}{{movie.poster_path}}{{isuffix}}" alt="{{movie.title}}" title="{{movie.title}}"/>
+				<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}"/>
 			</div>
 		</div>
 	</article>

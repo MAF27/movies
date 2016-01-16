@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var Movie = require('../models/movie');
-var Trade = require('../models/trade');
 
 // All routes relative to host/api
 router.get('/user', function(req, res) {
@@ -47,60 +46,27 @@ router.get('/movie', function(req, res) {
 	});
 });
 
-router.post('/trade', function(req, res) {
-	var newTrade = new Trade(req.body);
-
-	newTrade.save(function(err, trade) {
+router.put('/movie', function(req, res) {
+	Movie.findOne({
+		'movie.id': req.body.movie.id
+	}, function(err, movie) {
 		if (err) {
-			res.status(500)
-				.json(err);
-		}
-		res.status(200)
-			.json(trade);
-	});
-});
-
-router.put('/trade', function(req, res) {
-	console.log('* PUT TRADE: ', req.body._id, req.body.status);
-	Trade.update({
-		_id: req.body._id
-	}, {
-		$set: {
-			status: req.body.status
-		}
-	}, function(err) {
-		if (err) {
-			res.status(500)
-				.json(err);
-		}
-		res.status(200)
-			.json(Trade);
-	});
-});
-
-router.get('/trade', function(req, res) {
-	Trade.find({}, function(err, movies) {
-		if (err) {
-			console.log('API Error getting trades: ', err);
+			console.log('API error finding movie to update: ', err);
 		} else {
-			return res.status(200)
-				.json(movies);
+			movie.status = req.body.status;
+			movie.created = req.body.created;
+			movie.loaner = req.body.loaner;
+
+			movie.save(function(err) {
+				if (err) {
+					console.log('API error saving updated movie:', err);
+				} else {
+					return res.status(200)
+						.json(movie);
+				}
+			});
 		}
 	});
-});
-
-
-router.get('/movie/:id', function(req, res) {
-	// Movie.find({
-	// 	rest_id: req.params.rest_id
-	// }, function(err, goings) {
-	// 	if (err) {
-	// 		console.log('Error /api/get-goings: ', err);
-	// 	} else {
-	// 		return res.status(200)
-	// 			.json(goings);
-	// 	}
-	// });
 });
 
 module.exports = router;
