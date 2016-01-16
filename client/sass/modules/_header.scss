@@ -1,6 +1,6 @@
 header {
 	@include container;
-	background-color: $purple;
+	background-color: purple;
 	z-index: 100;
 	max-width: 1024px; // iPad Landscape
 	position: relative;
@@ -30,7 +30,7 @@ header {
 
 		ul {
 			position: absolute;
-			top: 82px;
+			top: 67px;
 			right: 20px;
 			z-index: 120;
 

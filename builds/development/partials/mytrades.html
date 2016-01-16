@@ -26,7 +26,6 @@
 		<div class="column">
 			<p ng-hide="filteredRequests.length">None.</p>
 			<div class="requests" ng-repeat="movie in movies | filter: openRequests as filteredRequests">
-				<!-- <div class="requests" ng-repeat="trade in filteredTrades = (trades | filter: openRequests)"> -->
 				<div class="image">
 					<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}"/>
 				</div>
@@ -42,7 +41,24 @@
 			</div>
 		</div>
 
-		<h1>Movies I borrowed</h1>
+		<h1>Movies I Requested</h1>
+		<div class="column">
+			<p ng-hide="filteredMyRequests.length">None.</p>
+			<div class="requests" ng-repeat="movie in movies | filter: myRequests as filteredMyRequests">
+				<div class="image">
+					<img class="poster" ng-src="{{iprefix}}{{movie.movie.poster_path}}{{isuffix}}" alt="{{movie.movie.title}}" title="{{movie.movie.title}}"/>
+				</div>
+				<div class="notes">
+					<p>From:
+						{{movie.owner.firstName}}</p>
+					<p>On:
+						<span ng-bind="format(movie.created);"></span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<h1>Movies I Borrowed</h1>
 		<div class="column">
 			<p ng-hide="filteredBorrows.length">None.</p>
 			<div class="borrowed" ng-repeat="movie in movies | filter: borrowed as filteredBorrows">
@@ -53,14 +69,14 @@
 					<p>From:
 						{{movie.owner.firstName}}</p>
 					<p>On:
-						<span ng-bind="format(trade.created);"></span>
+						<span ng-bind="format(movie.created);"></span>
 					</p>
-					<button ng-click="return(trade);">Return</button>
+					<button ng-click="return(movie);">Return</button>
 				</div>
 			</div>
 		</div>
 
-		<h1>Movies I lent to others</h1>
+		<h1>Movies I Lent to Others</h1>
 		<div class="column">
 			<p ng-hide="filteredLoans.length">None.</p>
 			<div class="onloan" ng-repeat="movie in movies | filter: onloan as filteredLoans">

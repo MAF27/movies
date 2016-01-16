@@ -2,5 +2,13 @@ section#addmovie {
 	height: 100%;
 	position: relative;
 	@include container(95%);
+
+	input[type=submit] {
+		font-size: 1em;
+	}
+
+	input[type=button] {
+		font-size: 1em;
+	}
 }
 //addmovie

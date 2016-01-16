@@ -26,9 +26,9 @@ strong {
 	font-weight: $bold;
 }
 
-input[type=text] {
+input {
 	outline: none;
-	background-color: $lightgrey;
+	background-color: #EEE;
 	border-radius: 4px;
 	border: 0;
 	font-size: 1em;
@@ -38,17 +38,13 @@ input[type=text] {
 input[type=submit] {
 	font-size: 1.1em;
 	background-color: $gold;
-	border-radius: 4px;
 	color: $light;
-	border: 0;
 }
 
 input[type=button] {
 	font-size: 0.9em;
 	background-color: $iosblue;
-	border-radius: 4px;
 	color: $light;
-	border: 0;
 	padding: 5px 7px;
 }
 
@@ -92,10 +88,6 @@ button {
 	margin-top: 5px;
 	border: 0;
 	border-radius: 4px;
-}
-
-article {
-	padding-top: 15px;
 }
 
 #hbs_content {

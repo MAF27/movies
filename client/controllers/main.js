@@ -44,7 +44,6 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 			};
 			return $http.put('/api/movie', body)
 				.then(function(result) {
-					console.log('* Result of addtrade: ', result);
 					$scope.msg = 'A request to loan "' + result.data.movie.title + '" was sent to ' + result.data.owner.firstName + '. You\'ll hear back shortly.';
 					// Check updated movie back into scope
 					for (var i = 0; i < $scope.movies.length; i++) {
@@ -108,60 +107,6 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
-	// var fillMyMovies = function() {
-	// 	$scope.myMovies = [];
-	// 	var i, status, j, loaner;
-	//
-	// 	$http.get('/api/movie')
-	// 		.then(function(result) {
-	//
-	// 			$scope.movies = result.data;
-	//
-	// 			// for (i = 0; i < $scope.movies.length; i++) {
-	// 			// 	if ($scope.movies[i].status === 'on_loan') {
-	// 			// 		// Check whether this movie is on loan
-	// 			// 		status = 'mine'; loaner = '';
-	// 			// 		for (j = 0; j < result.data.length; j++) {
-	// 			// 			if (result.data[j].movie._id === $scope.movies[i].movie.id && result.data[j]
-	// 			// 				.status === 'accepted') {
-	// 			// 				status = 'onloan';
-	// 			// 				loaner = result.data[j].loaner.firstName;
-	// 			// 			}
-	// 			// 		}
-	// 			// 		$scope.myMovies.push({
-	// 			// 			title: $scope.movies[i].movie.title,
-	// 			// 			poster_path: $scope.movies[i].movie.poster_path,
-	// 			// 			mine: status === 'mine',
-	// 			// 			onloan: status === 'onloan',
-	// 			// 			loaner: loaner
-	// 			// 		});
-	// 			// 	}
-	// 			// }
-	// 			//
-	// 			// for (i = 0; i < result.data.length; i++) {
-	// 			// 	if (result.data[i].status === 'accepted' && result.data[i].loaner._id === $rootScope.userobj._id) {
-	// 			// 		$scope.myMovies.push({
-	// 			// 			title: result.data[i].movie.title,
-	// 			// 			poster_path: result.data[i].movie.poster_path,
-	// 			// 			borrowed: true,
-	// 			// 			owner: result.data[i].owner.firstName
-	// 			// 		});
-	// 			// 	}
-	// 			// }
-	// 		});
-	// };
-
-	$scope.msg = '';
-	if (!$scope.movies) {
-		$http.get('/api/movie')
-			.then(function(result) {
-				$scope.movies = result.data;
-				// fillMyMovies();
-			});
-	} else {
-		// fillMyMovies();
-	}
-
 	$scope.movieDetails = function(item) {
 		if (item.onloan) {
 			$scope.msg = item.loaner + ' borrowed "' + item.title + '" from you.';
@@ -177,13 +122,12 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 	};
 
 	$scope.mineOrLoan = function(item) {
-		// return (item.owner._id === $rootScope.userobj._id || item.loaner._id === $rootScope.userobj._id);
 		if (item.owner._id === $rootScope.userobj._id) {
 			return true;
 		}
 
 		if (item.loaner) {
-			if (item.owner._id === $rootScope.userobj._id) {
+			if (item.loaner._id === $rootScope.userobj._id) {
 				return true;
 			}
 		}
@@ -195,9 +139,17 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 	};
 
 	$scope.onloan = function(item) {
-		console.log('* onloan: ', item);
 		return (item.status === 'on_loan' && item.owner._id === $rootScope.userobj._id);
 	};
+
+	// Init Controller
+	$scope.msg = '';
+	if (!$scope.movies) {
+		$http.get('/api/movie')
+			.then(function(result) {
+				$scope.movies = result.data;
+			});
+	}
 
 });
 
@@ -205,8 +157,11 @@ movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) 
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
-	$scope.format = function(date) {
-		var d = new Date(date);
+	$scope.format = function(d) {
+		if (typeof d !== 'object') {
+			d = new Date(d);
+		}
+
 		var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 		var months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 		return days[d.getDay()] + ', ' + months[d.getMonth()] + ' ' + d.getDate();
@@ -214,6 +169,10 @@ movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) 
 
 	$scope.openRequests = function(item) {
 		return (item.status === 'request' && item.owner._id === $rootScope.userobj._id);
+	};
+
+	$scope.myRequests = function(item) {
+		return (item.status === 'request' && item.loaner._id === $rootScope.userobj._id);
 	};
 
 	$scope.borrowed = function(item) {
