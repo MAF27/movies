@@ -27,7 +27,6 @@ exports.addUser = function(user, next) {
 };
 
 exports.updateUser = function(user, next) {
-	console.log('* USER SERVICE: UPDATE USER: ', user);
 
 	User.update({
 		_id: user._id

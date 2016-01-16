@@ -1,7 +1,7 @@
 var angular = require('angular');
 var movieControllers = angular.module('movieControllers', []);
 
-movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope) {
+movieControllers.controller('CtrlAllMovies', ['$http', '$scope', '$rootScope', function($http, $scope, $rootScope) {
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -59,9 +59,9 @@ movieControllers.controller('CtrlAllMovies', function($http, $scope, $rootScope)
 		$scope.msg = '';
 	};
 
-});
+}]);
 
-movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, $location) {
+movieControllers.controller('CtrlAddMovie', ['$http', '$scope', '$rootScope', '$location', function($http, $scope, $rootScope, $location) {
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -101,9 +101,9 @@ movieControllers.controller('CtrlAddMovie', function($http, $scope, $rootScope, 
 		$location.path('/allmovies');
 	};
 
-});
+}]);
 
-movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) {
+movieControllers.controller('CtrlMyMovies', ['$http', '$scope', '$rootScope', function($http, $scope, $rootScope) {
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -151,9 +151,9 @@ movieControllers.controller('CtrlMyMovies', function($http, $scope, $rootScope) 
 			});
 	}
 
-});
+}]);
 
-movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) {
+movieControllers.controller('CtrlMyTrades', ['$http', '$scope', '$rootScope', function($http, $scope, $rootScope) {
 	$scope.iprefix = 'http://image.tmdb.org/t/p/w500';
 	$scope.isuffix = '&api_key=c4b9dc0df9605cd30fcc0d7c535a2ea8';
 
@@ -210,4 +210,4 @@ movieControllers.controller('CtrlMyTrades', function($http, $scope, $rootScope) 
 			});
 	}
 
-});
+}]);

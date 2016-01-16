@@ -1,17 +1,20 @@
 TO DO
-- Data structure change: loans direkt auf movie object, kein separates trade object
-	-> Abfangen Anfrage bereits ausgeliehener oder angefragter Movies
-- my trades: Ausstehende Anfragen
-- my trades: badge?
-- Design for big screen (limit iPad landscape): 95% width in gallery, height raus
-- Check process problems: notification of accept or decline? Others?
+- Heroku: Limit what gets pushed, i.e. no node_modules, builds/development, client etc.
 - Autoprefixer not working - column-count
+- gulp-uglify needs to be restarted to work
 
-- Image sizes - stretch'em
+- my trades: badge?
+
 - Image prefix and suffix to .locals
 - User menu: use :focus to activate, thus clicking anywhere else will get rid of it
 
 Deploy Issues
+OK - Design for big screen (limit iPad landscape): 95% width in gallery, height raus
+OK - Check process problems: notification of accept or decline? Others?
+OK - Image sizes - stretch'em
+OK - Data structure change: loans direkt auf movie object, kein separates trade object
+	-> Abfangen Anfrage bereits ausgeliehener oder angefragter Movies
+OK - my trades: Ausstehende Anfragen
 n/a - Copy images to db for speed
 OK - node-modules in browser - browserify debug:true
 OK - client folder in browser - browserify debug:true
@@ -20,3 +23,9 @@ OK - My Trades: Shadow auf Bild, nicht div
 OK - Movie Added Dialogue: Ang/jQuery height where clicked. Solution: Ouch, just needed position:fixed.
 OK - Profile save
 OK - Allmovies: Scroll bis ganz unten
+
+Heroku
+NODE_ENV=production
+
+export NODE_ENV=production
+export NODE_ENV=development

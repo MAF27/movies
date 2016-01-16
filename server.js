@@ -15,6 +15,11 @@ var users 				= require('./server/routes/users');
 var api 					= require('./server/routes/api');
 
 var	app = express();
+if (process.env.NODE_ENV === 'production') {
+	var env = 'production';
+} else {
+	env = 'development';
+}
 
 // Handlebars view setup
 app.set('views', __dirname + '/server/views');
@@ -24,7 +29,9 @@ app.set('view engine', 'hbs');
 mongoose.connect('mongodb://adminmaf:mafmaf@ds035995.mongolab.com:35995/movies');
 
 // URL parsing, express session
-app.use(logger('dev'));
+if (env === 'development') {
+	app.use(logger('dev'));
+}
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,13 +57,12 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/', users);
 app.use('/api', api);
-// app.use(express.static('./builds'));
-app.use(express.static('./builds/development'));
-// app.use(express.static(__dirname + '/builds/development'));
+app.use(express.static('./builds/' + env));
 
 // CONFIGURE PORT FOR DEV AND PROD, START SERVER
 app.set('port', process.env.PORT || 3000);
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
+	console.log('NODE_ENV: ', process.env.NODE_ENV);
 	console.log('MOVIE TRADE server listening on port ' + app.get('port') + ' ...');
 });

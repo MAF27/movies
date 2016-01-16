@@ -1,13 +1,11 @@
 // Gulp Dependencies
 var gulp = require('gulp');
-var rename = require('gulp-rename');
-var nodemon = require('gulp-nodemon');
-var notify = require('gulp-notify');
 var livereload = require('gulp-livereload');
 var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
 var compass = require('gulp-compass');
 var minifyHTML = require('gulp-minify-html');
+var buffer = require('vinyl-buffer');
 
 // Build Dependencies
 var browserify = require('browserify');
@@ -22,9 +20,6 @@ var minifyCSS = require('gulp-minify-css');
 // Development Dependencies
 var jshint = require('gulp-jshint');
 
-// Test Dependencies
-var mochaPhantomjs = require('gulp-mocha-phantomjs');
-
 var env,
 	jsSources,
 	sassSources,
@@ -32,7 +27,12 @@ var env,
 	outputDir,
 	sassStyle;
 
-env = 'development';
+// Take it from env; "export NODE_ENV=development" in terminal
+if (process.env.NODE_ENV === 'production') {
+	env = 'production';
+} else {
+	env = 'development';
+}
 
 if (env === 'development') {
 	outputDir = 'builds/development/';
@@ -41,6 +41,8 @@ if (env === 'development') {
 	outputDir = 'builds/production/';
 	sassStyle = 'compressed';
 }
+
+console.log('GULP: ' + env + ' environment, build folder ' + outputDir);
 
 jsSources = ['client/**/*.js'];
 sassSources = ['client/sass/style.scss'];
@@ -52,7 +54,7 @@ var bundler = browserify({
 	cache: {},
 	packageCache: {},
 	entries: ['./client/app.js'],
-	debug: true
+	debug: env === 'development'
 });
 
 var handleErrors = function(e) {
@@ -65,6 +67,9 @@ var bundle = function() {
 		.bundle()
 		.on('error', handleErrors)
 		.pipe(source('bundle.js'))
+		.pipe(gulp.dest(outputDir))
+		.pipe(buffer())
+		.pipe(gulpif(env === 'production', uglify())) // Minify for production, no rename because that would mean manually changing HTML
 		.pipe(gulp.dest(outputDir));
 };
 
@@ -75,27 +80,8 @@ gulp.task('lint-client', function() {
 		.pipe(jshint.reporter('default'));
 });
 
-gulp.task('lint-test', function() {
-	return gulp.src('./test/**/*.js')
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
-});
-
 gulp.task('browserify-client', ['lint-client'], function() {
 	return bundle();
-});
-
-gulp.task('browserify-test', ['lint-test'], function() {
-	return bundler
-		.bundle()
-		.on('error', handleErrors)
-		.pipe(source('test-bundle.js'))
-		.pipe(gulp.dest('build'));
-});
-
-gulp.task('test', ['lint-test', 'browserify-test'], function() {
-	return gulp.src('test/client/index.html')
-		.pipe(mochaPhantomjs());
 });
 
 gulp.task('styles', function() {
@@ -112,19 +98,8 @@ gulp.task('styles', function() {
 		.pipe(prefix({
 			browsers: ['last 2 versions'],
 			cascade: false
-		}));
-});
-
-gulp.task('minify-css', ['styles'], function() {
-	return gulp.src(outputDir + 'style.css')
-		.pipe(minifyCSS())
-		.pipe(rename('style.min.css'));
-});
-
-gulp.task('uglify-js', ['browserify-client'], function() {
-	return gulp.src(outputDir + 'bundle.js')
-		.pipe(uglify())
-		.pipe(rename('bundle.min.js'));
+		}))
+		.pipe(gulpif(env === 'production', minifyCSS()));
 });
 
 gulp.task('reload', function() {
@@ -142,10 +117,9 @@ gulp.task('images', function() {
 		.pipe(gulp.dest(outputDir + 'images'));
 });
 
-gulp.task('build', ['uglify-js', 'minify-css', 'html', 'images']);
+gulp.task('build', ['browserify-client', 'styles', 'html', 'images']);
 
 gulp.task('default', ['build', 'watch']);
-// gulp.task('default', ['test', 'build', 'watch']);
 
 // WATCHING
 gulp.task('watch', function() {
@@ -157,22 +131,6 @@ gulp.task('watch', function() {
 	gulp.watch('client/sass/**/*.scss', ['styles', 'reload']);
 	gulp.watch(['**/*.html', '**/*.hbs'], ['html', 'reload']);
 	gulp.watch(['client/images/*.*'], ['images', 'reload']);
-
-	// NODE
-	// listen for changes
-	// livereload.listen();
-	// // configure nodemon
-	// nodemon({
-	// 		// the script to run the app
-	// 		script: 'server.js',
-	// 		ext: 'js'
-	// 	})
-	// 	.on('restart', function() {
-	// 		// when the app has restarted, run livereload.
-	// 		gulp.src('server.js')
-	// 			.pipe(livereload())
-	// 			.pipe(notify('Reloading page, please wait...'));
-	// 	});
 
 	return bundle();
 });
