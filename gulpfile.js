@@ -69,7 +69,7 @@ var bundle = function() {
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest(outputDir))
 		.pipe(buffer())
-		.pipe(gulpif(env === 'production', uglify())) // Minify for production, no rename because that would mean manually changing HTML
+		.pipe(gulpif(env === 'production', uglify({ mangle: false }))) // Minify for production, no rename because that would mean manually changing HTML
 		.pipe(gulp.dest(outputDir));
 };
 
